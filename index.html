@@ -150,8 +150,12 @@
         .nav-links { display: flex; gap: 6px; align-items: center; }
         .nav-link { padding: 10px 16px; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); border-radius: 8px; transition: all 0.2s; }
         .nav-link:hover { color: white; background: rgba(255,255,255,0.12); }
+        .nav-link-example { background: linear-gradient(135deg, #ff6b35, #f7931e); color: white !important; font-weight: 600; }
+        .nav-link-example:hover { background: linear-gradient(135deg, #ff8555, #ffab3e); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255,107,53,0.3); }
         .main-nav.scrolled .nav-link { color: var(--gray-600); }
         .main-nav.scrolled .nav-link:hover { color: var(--navy); background: var(--gray-100); }
+        .main-nav.scrolled .nav-link-example { background: linear-gradient(135deg, #ff6b35, #f7931e); color: white !important; }
+        .main-nav.scrolled .nav-link-example:hover { background: linear-gradient(135deg, #ff8555, #ffab3e); }
         .nav-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.25); margin: 0 8px; }
         .main-nav.scrolled .nav-divider { background: var(--gray-300); }
 
@@ -1249,6 +1253,8 @@
                 <a href="#modules" class="nav-link">Modules</a>
                 <a href="#assets" class="nav-link">Assets</a>
                 <a href="#offers" class="nav-link">Offers</a>
+                <div class="nav-divider"></div>
+                <a href="example.html" class="nav-link nav-link-example">⚡ Example</a>
             </div>
         </div>
     </nav>
@@ -2131,6 +2137,25 @@
             </div>
         </div>
     </section>
+
+    <!-- Example CTA Banner -->
+    <div style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffab3e 100%); padding: 24px 0; margin: 0;">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">⚡</div>
+                    <div>
+                        <div style="font-size: 18px; font-weight: 700; color: white; margin-bottom: 4px;">See DAWN® in Action: UtilityCo Full Case Study</div>
+                        <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Complete application of all 5 modules with real deliverables, DAL cards, and governance outputs</div>
+                    </div>
+                </div>
+                <a href="example.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: white; color: #ff6b35; font-weight: 700; font-size: 15px; border-radius: 10px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    View Full Example
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Module 1 -->
     <section class="module-section section-light" id="m1">
@@ -3754,6 +3779,46 @@
                 </div>
             </div>
             <div class="positioning-note"><p><strong>CVA Positioning:</strong> DAWN<sup style="font-size: 0.5em; vertical-align: super;">®</sup> is a strategy and operating model methodology. CVA does not implement tools, build agents, or provide technical architecture. We prepare the CEO and Board to make the right choices; implementation partners execute.</p></div>
+        </div>
+    </section>
+
+    <!-- Full Example CTA Section -->
+    <section style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 100px 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"10\" height=\"10\" patternUnits=\"userSpaceOnUse\"><path d=\"M 10 0 L 0 0 0 10\" fill=\"none\" stroke=\"rgba(255,107,53,0.08)\" stroke-width=\"0.5\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grid)\"/></svg>');"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <div style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: linear-gradient(135deg, rgba(255,107,53,0.2), rgba(247,147,30,0.2)); border: 1px solid rgba(255,107,53,0.3); border-radius: 50px; margin-bottom: 32px;">
+                    <span style="font-size: 20px;">⚡</span>
+                    <span style="font-size: 14px; font-weight: 600; color: #ff8555; text-transform: uppercase; letter-spacing: 0.1em;">Live Example</span>
+                </div>
+                <h2 style="font-size: 42px; font-weight: 800; color: white; margin-bottom: 20px; line-height: 1.2;">See DAWN<sup style="font-size: 0.5em; vertical-align: super;">®</sup> Applied to UtilityCo</h2>
+                <p style="font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 40px; line-height: 1.7;">
+                    Explore a complete, end-to-end application of the DAWN® methodology on a fictional European Energy & Utilities company.<br>
+                    <strong style="color: rgba(255,255,255,0.9);">All 5 modules • Real deliverables • DAL cards • Governance outputs • Base Camps roadmap</strong>
+                </p>
+                <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 48px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 36px; font-weight: 800; color: #ff8555;">8</div>
+                        <div style="font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;">DBAs Mapped</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 36px; font-weight: 800; color: #ff8555;">15</div>
+                        <div style="font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;">Priority DALs</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 36px; font-weight: 800; color: #ff8555;">4</div>
+                        <div style="font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;">Scenarios</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 36px; font-weight: 800; color: #ff8555;">3</div>
+                        <div style="font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em;">Lighthouses</div>
+                    </div>
+                </div>
+                <a href="example.html" style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 40px; background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; font-weight: 700; font-size: 17px; border-radius: 12px; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 32px rgba(255,107,53,0.4);">
+                    Explore the Full UtilityCo Example
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
         </div>
     </section>
 
