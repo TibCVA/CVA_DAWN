@@ -1,1 +1,2538 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVA DAWN® — Designing Agentic Work Networks</title>
+    <meta name="description" content="CVA's flagship methodology to prepare the CEO and ExCo for the Agentic Age (2026–2030). Strategy, Operating Model, Governance, Workforce.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy-deep: #0B2438;
+            --navy: #003366;
+            --navy-light: #184B75;
+            --navy-darker: #061620;
+            
+            --teal: #008080;
+            --teal-light: #20B2AA;
+            --teal-lighter: #40E0D0;
+            --teal-dark: #006666;
+            --teal-glow: rgba(32, 178, 170, 0.4);
+            
+            --gold: #C9A227;
+            --gold-light: #E8C547;
+            --gold-dark: #A88B1F;
+            
+            --white: #FFFFFF;
+            --off-white: #F8FAFC;
+            --gray-50: #FAFBFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            
+            --red-soft: #FEE2E2;
+            --red-accent: #DC2626;
+            --red-dark: #991B1B;
+            --green-soft: #D1FAE5;
+            --green-accent: #059669;
+            --green-dark: #047857;
+            --amber-soft: #FEF3C7;
+            --amber-accent: #D97706;
+            --blue-soft: #DBEAFE;
+            --blue-accent: #2563EB;
+            --purple-soft: #EDE9FE;
+            --purple-accent: #7C3AED;
+            --orange-soft: #FFEDD5;
+            --orange-accent: #EA580C;
+            
+            --container-width: 1400px;
+            --container-narrow: 1000px;
+            --header-height: 80px;
+            
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-2xl: 48px;
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+            --shadow-glow: 0 0 40px rgba(0,128,128,0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 100px; }
+        
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--gray-700);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Instrument Serif', Georgia, serif; color: var(--navy); line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; }
+        h4, h5, h6 { font-family: 'DM Sans', sans-serif; font-weight: 700; color: var(--navy); line-height: 1.3; }
+        
+        a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
+        ul, ol { list-style: none; }
+        button { font-family: inherit; cursor: pointer; border: none; outline: none; }
+        strong { font-weight: 600; color: var(--navy); }
+        
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        ::selection { background: var(--teal); color: white; }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--gray-100); }
+        ::-webkit-scrollbar-thumb { background: var(--gray-400); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gray-500); }
+
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 48px; }
+        .container-narrow { max-width: var(--container-narrow); margin: 0 auto; padding: 0 48px; }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal-lighter));
+            z-index: 10001;
+            width: 0%;
+            transition: width 0.15s linear;
+            box-shadow: 0 0 10px var(--teal-glow);
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+        }
+        .main-nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo { display: flex; align-items: baseline; gap: 12px; color: white; transition: color 0.3s; }
+        .logo-main { font-family: 'DM Sans', sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
+        .logo-dawn { font-family: 'Instrument Serif', serif; font-size: 22px; font-style: italic; opacity: 0.9; }
+        .main-nav.scrolled .logo { color: var(--navy); }
+
+        .nav-links { display: flex; gap: 6px; align-items: center; }
+        .nav-link { padding: 10px 16px; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); border-radius: 8px; transition: all 0.2s; }
+        .nav-link:hover { color: white; background: rgba(255,255,255,0.12); }
+        .main-nav.scrolled .nav-link { color: var(--gray-600); }
+        .main-nav.scrolled .nav-link:hover { color: var(--navy); background: var(--gray-100); }
+        .nav-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.25); margin: 0 8px; }
+        .main-nav.scrolled .nav-divider { background: var(--gray-300); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 14px 28px; font-size: 14px; font-weight: 600; border-radius: 100px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap;
+            position: relative; overflow: hidden;
+        }
+        .btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; }
+        .btn:hover::before { opacity: 1; }
+        .btn-primary { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: white; box-shadow: 0 4px 20px rgba(0, 128, 128, 0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 128, 128, 0.5); }
+        .btn-ghost { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(10px); }
+        .btn-ghost:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4); }
+        .btn-lg { padding: 18px 40px; font-size: 16px; }
+
+        /* Tags & Badges */
+        .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--teal); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px; }
+        .tag::before { content: ''; width: 24px; height: 2px; background: var(--teal); }
+        .tag-light { color: var(--teal-light); }
+        .tag-light::before { background: var(--teal-light); }
+
+        /* Section Styling */
+        section { scroll-margin-top: 100px; }
+        .section-dark { background: linear-gradient(160deg, var(--navy-darker) 0%, var(--navy-deep) 30%, var(--navy) 70%, var(--navy-light) 100%); color: white; }
+        .section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4 { color: white; }
+        .section-dark .tag { color: var(--teal-light); }
+        .section-dark .tag::before { background: var(--teal-light); }
+        .section-light { background: var(--white); }
+        .section-gray { background: var(--gray-50); }
+        .section-gradient { background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%); }
+
+        .section-header { text-align: center; max-width: 900px; margin: 0 auto 80px; }
+        .section-title { font-size: clamp(40px, 5vw, 64px); margin-bottom: 24px; }
+        .section-subtitle { font-size: 19px; color: var(--gray-500); line-height: 1.8; max-width: 700px; margin: 0 auto; }
+        .section-dark .section-subtitle { color: rgba(255,255,255,0.75); }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 120px;
+            overflow: hidden;
+        }
+        .hero-bg { position: absolute; inset: 0; pointer-events: none; }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridPan 60s linear infinite;
+            opacity: 0.6;
+        }
+        @keyframes gridPan { 0% { transform: translate(0, 0); } 100% { transform: translate(60px, 60px); } }
+        
+        .hero-orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5; }
+        .hero-orb-1 { width: 800px; height: 800px; background: radial-gradient(circle, var(--teal) 0%, transparent 70%); top: -300px; right: -200px; animation: orbFloat1 25s ease-in-out infinite; }
+        .hero-orb-2 { width: 600px; height: 600px; background: radial-gradient(circle, var(--navy-light) 0%, transparent 70%); bottom: -200px; left: -150px; animation: orbFloat2 20s ease-in-out infinite; }
+        .hero-orb-3 { width: 400px; height: 400px; background: radial-gradient(circle, var(--gold) 0%, transparent 70%); top: 40%; left: 30%; opacity: 0.2; animation: orbFloat3 30s ease-in-out infinite; }
+        @keyframes orbFloat1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-40px, 40px) scale(1.1); } }
+        @keyframes orbFloat2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(30px, -30px) scale(1.05); } }
+        @keyframes orbFloat3 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-20px, 20px) scale(0.95); } }
+
+        .hero-content { position: relative; z-index: 2; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 100px; align-items: center; }
+        .hero-text { color: white; }
+        
+        .hero-badge { display: inline-flex; align-items: center; gap: 12px; padding: 10px 24px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--teal-light); margin-bottom: 40px; backdrop-filter: blur(10px); }
+        .hero-badge-dot { width: 8px; height: 8px; background: var(--teal-light); border-radius: 50%; box-shadow: 0 0 12px var(--teal-light); animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+
+        .hero-title { font-size: clamp(56px, 7vw, 96px); line-height: 1; margin-bottom: 16px; background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-title-sub { font-family: 'DM Sans', sans-serif; font-size: clamp(22px, 2.8vw, 32px); font-weight: 300; color: rgba(255,255,255,0.7); margin-bottom: 36px; letter-spacing: 0.02em; }
+        .hero-description { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 24px; max-width: 560px; line-height: 1.8; }
+
+        .hero-stats { display: flex; gap: 40px; margin-bottom: 48px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .hero-stat { text-align: left; }
+        .hero-stat-value { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 600; color: var(--teal-light); line-height: 1; margin-bottom: 4px; }
+        .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .hero-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: 0; box-shadow: 0 40px 80px rgba(0,0,0,0.4); overflow: hidden; }
+        .hero-card-header { display: flex; align-items: center; gap: 16px; padding: 28px 32px; background: rgba(0,0,0,0.2); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .hero-card-icon { width: 52px; height: 52px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; box-shadow: 0 8px 24px rgba(0,128,128,0.4); }
+        .hero-card-title { font-size: 18px; font-weight: 700; color: white; }
+        .hero-card-subtitle { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+        .hero-card-body { padding: 28px 32px; }
+        .hero-card-section { margin-bottom: 24px; }
+        .hero-card-section:last-child { margin-bottom: 0; }
+        .hero-card-section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.4); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .hero-card-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+        .hero-card-list { display: flex; flex-direction: column; gap: 10px; }
+        .hero-card-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+        .hero-card-item-icon { width: 20px; height: 20px; background: rgba(0,128,128,0.2); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--teal-light); flex-shrink: 0; margin-top: 1px; }
+        .hero-card-item.warning .hero-card-item-icon { background: rgba(217,119,6,0.2); color: var(--amber-accent); }
+
+        /* Part Dividers */
+        .part-divider { padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
+        .part-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--gray-300) 20%, var(--gray-300) 80%, transparent 100%); }
+        .part-number { display: inline-flex; align-items: center; justify-content: center; width: 100px; height: 100px; background: var(--white); border: 3px solid var(--gray-200); border-radius: 50%; font-family: 'Instrument Serif', serif; font-size: 42px; color: var(--navy); position: relative; z-index: 1; margin-bottom: 28px; box-shadow: var(--shadow-lg); }
+        .part-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: var(--gray-400); margin-bottom: 16px; }
+        .part-title { font-size: clamp(32px, 4vw, 48px); color: var(--navy); max-width: 700px; margin: 0 auto; }
+
+        /* Concept Cards */
+        .concepts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .concept-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 40px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
+        .concept-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--teal), var(--teal-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+        .concept-card:hover { border-color: var(--teal); box-shadow: var(--shadow-xl), var(--shadow-glow); transform: translateY(-8px); }
+        .concept-card:hover::before { transform: scaleX(1); }
+        .concept-icon { width: 72px; height: 72px; background: linear-gradient(135deg, var(--gray-100), var(--gray-50)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 28px; transition: all 0.3s; border: 1px solid var(--gray-200); }
+        .concept-card:hover .concept-icon { background: linear-gradient(135deg, rgba(0,128,128,0.15), rgba(0,128,128,0.05)); border-color: rgba(0,128,128,0.3); transform: scale(1.05); }
+        .concept-title { font-size: 24px; font-weight: 700; margin-bottom: 16px; color: var(--navy); }
+        .concept-text { font-size: 15px; color: var(--gray-600); line-height: 1.75; }
+
+        /* Consequences Section */
+        .consequences-section { padding: 160px 0; }
+        .consequences-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 100px; align-items: start; }
+        .consequences-intro { position: sticky; top: 120px; }
+        .consequences-intro h2 { font-size: clamp(36px, 4.5vw, 54px); margin-bottom: 28px; }
+        .consequences-intro p { font-size: 17px; color: var(--gray-600); line-height: 1.85; margin-bottom: 24px; }
+        .consequence-cards { display: flex; flex-direction: column; gap: 28px; }
+        .consequence-card { display: grid; grid-template-columns: 90px 1fr; gap: 28px; padding: 36px; background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); transition: all 0.3s; }
+        .consequence-card:hover { border-color: var(--teal); box-shadow: var(--shadow-lg); transform: translateX(8px); }
+        .consequence-number { width: 90px; height: 90px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-family: 'Instrument Serif', serif; font-size: 42px; color: white; box-shadow: 0 8px 24px rgba(0,51,102,0.3); }
+        .consequence-content h4 { font-size: 20px; margin-bottom: 12px; color: var(--navy); }
+        .consequence-content p { font-size: 15px; color: var(--gray-600); line-height: 1.75; }
+
+        /* ============================================
+           PYRAMID TO DIAMOND SECTION
+           ============================================ */
+        .org-transformation { padding: 160px 0; }
+        
+        .transformation-visual {
+            display: grid;
+            grid-template-columns: 1fr 120px 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        /* Pyramid Visual */
+        .pyramid-container {
+            background: var(--gray-50);
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            text-align: center;
+            position: relative;
+        }
+        .pyramid-label {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gray-200);
+            padding: 6px 20px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-600);
+        }
+        
+        .pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .pyramid-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .pyramid-level-1 { width: 140px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); color: white; }
+        .pyramid-level-2 { width: 200px; background: var(--navy-light); color: white; }
+        .pyramid-level-3 { width: 260px; background: var(--gray-400); color: white; }
+        .pyramid-level-4 { width: 320px; background: var(--gray-300); color: var(--gray-700); }
+        
+        /* Arrow */
+        .transform-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .arrow-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gray-400), var(--teal));
+            position: relative;
+        }
+        .arrow-line::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 8px solid transparent;
+            border-left: 12px solid var(--teal);
+        }
+        .arrow-text {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+        }
+        
+        /* Diamond Visual */
+        .diamond-container {
+            background: linear-gradient(135deg, rgba(0,128,128,0.05), rgba(0,128,128,0.02));
+            border: 2px solid var(--teal);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-glow);
+        }
+        .diamond-label {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            padding: 6px 20px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+        }
+        
+        .diamond {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .diamond-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .diamond-level-1 { width: 160px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); color: white; }
+        .diamond-level-2 { width: 280px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: white; box-shadow: 0 4px 20px rgba(0,128,128,0.3); }
+        .diamond-level-3 { width: 200px; background: var(--gold); color: white; }
+        .diamond-level-4 { width: 120px; background: var(--gray-200); color: var(--gray-700); }
+        
+        .diamond-level .agent-badge {
+            position: absolute;
+            right: -60px;
+            background: rgba(0,128,128,0.1);
+            border: 1px solid var(--teal);
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 10px;
+            color: var(--teal);
+        }
+
+        /* Role Evolution Cards */
+        .role-evolution {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .role-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        .role-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        .role-card.strategic::before { background: var(--navy); }
+        .role-card.orchestrator::before { background: var(--teal); }
+        .role-card.supervisor::before { background: var(--gold); }
+        .role-card.specialist::before { background: var(--purple-accent); }
+        
+        .role-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .role-card.strategic .role-icon { background: rgba(0,51,102,0.1); }
+        .role-card.orchestrator .role-icon { background: rgba(0,128,128,0.1); }
+        .role-card.supervisor .role-icon { background: rgba(201,162,39,0.15); }
+        .role-card.specialist .role-icon { background: rgba(124,58,237,0.1); }
+        
+        .role-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+        .role-subtitle { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+        .role-card.strategic .role-subtitle { color: var(--navy-light); }
+        .role-card.orchestrator .role-subtitle { color: var(--teal); }
+        .role-card.supervisor .role-subtitle { color: var(--gold-dark); }
+        .role-card.specialist .role-subtitle { color: var(--purple-accent); }
+        
+        .role-tasks { display: flex; flex-direction: column; gap: 10px; }
+        .role-task {
+            font-size: 13px;
+            color: var(--gray-600);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .role-task::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           COST & VALUE SECTION
+           ============================================ */
+        .cost-value-section { padding: 160px 0; }
+        
+        .cost-value-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 80px;
+        }
+        
+        .economics-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            position: relative;
+        }
+        .economics-card.cost-card {
+            border-color: var(--red-accent);
+            background: linear-gradient(180deg, rgba(220,38,38,0.02) 0%, var(--white) 100%);
+        }
+        .economics-card.value-card {
+            border-color: var(--green-accent);
+            background: linear-gradient(180deg, rgba(5,150,105,0.02) 0%, var(--white) 100%);
+        }
+        
+        .economics-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .economics-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        .cost-card .economics-icon { background: var(--red-soft); }
+        .value-card .economics-icon { background: var(--green-soft); }
+        
+        .economics-title { font-size: 24px; font-weight: 700; }
+        .cost-card .economics-title { color: var(--red-dark); }
+        .value-card .economics-title { color: var(--green-dark); }
+        
+        /* Cost Stack Visual */
+        .cost-stack { display: flex; flex-direction: column; gap: 12px; }
+        .cost-layer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            position: relative;
+        }
+        .cost-layer.traditional { background: var(--gray-100); border: 1px dashed var(--gray-300); }
+        .cost-layer.new { background: rgba(0,128,128,0.08); border: 1px solid rgba(0,128,128,0.2); }
+        .cost-layer.new.highlight { background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.3); }
+        
+        .cost-bar {
+            height: 24px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .cost-bar.traditional { background: var(--gray-400); }
+        .cost-bar.reduced { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+        .cost-bar.new-cost { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+        
+        .cost-label {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+        .cost-badge {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+        .cost-badge.down { background: var(--green-soft); color: var(--green-accent); }
+        .cost-badge.up { background: var(--amber-soft); color: var(--amber-accent); }
+        .cost-badge.new { background: var(--purple-soft); color: var(--purple-accent); }
+
+        /* Value Drivers */
+        .value-drivers { display: flex; flex-direction: column; gap: 16px; }
+        .value-driver {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--gray-50);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .value-driver:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+        .value-metric {
+            width: 80px;
+            text-align: center;
+        }
+        .value-metric-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--green-accent);
+            line-height: 1;
+        }
+        .value-metric-unit {
+            font-size: 11px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+        }
+        .value-description h5 { font-size: 15px; margin-bottom: 4px; }
+        .value-description p { font-size: 13px; color: var(--gray-500); }
+
+        /* Competitive Advantage Matrix */
+        .advantage-matrix {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            margin-top: 48px;
+        }
+        .matrix-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .matrix-title { font-size: 28px; margin-bottom: 12px; }
+        .matrix-subtitle { font-size: 15px; color: var(--gray-500); }
+        
+        .matrix-visual {
+            position: relative;
+            padding: 40px;
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 3px;
+            background: var(--gray-300);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .matrix-quadrant {
+            padding: 32px;
+            background: var(--white);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .matrix-quadrant:hover { background: var(--gray-50); }
+        .matrix-quadrant.highlight {
+            background: linear-gradient(135deg, rgba(0,128,128,0.08), rgba(0,128,128,0.02));
+        }
+        .quadrant-icon { font-size: 36px; margin-bottom: 12px; }
+        .quadrant-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+        .quadrant-desc { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
+        
+        .matrix-axis-x, .matrix-axis-y {
+            position: absolute;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-500);
+        }
+        .matrix-axis-x { bottom: 8px; left: 50%; transform: translateX(-50%); }
+        .matrix-axis-y { left: 8px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+
+        /* CEO Questions */
+        .ceo-questions { padding: 160px 0; }
+        .questions-wrapper { background: linear-gradient(160deg, var(--navy-darker) 0%, var(--navy-deep) 40%, var(--navy) 100%); border-radius: var(--radius-2xl); padding: 80px; position: relative; overflow: hidden; box-shadow: var(--shadow-2xl); }
+        .questions-wrapper::before { content: '?'; position: absolute; top: -60px; right: -30px; font-family: 'Instrument Serif', serif; font-size: 500px; color: rgba(255,255,255,0.02); pointer-events: none; line-height: 1; }
+        .questions-header { text-align: center; margin-bottom: 64px; }
+        .questions-header h2 { color: white; font-size: clamp(36px, 4.5vw, 54px); margin-bottom: 16px; }
+        .questions-header p { color: rgba(255,255,255,0.7); font-size: 18px; }
+        .questions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .question-item { display: flex; gap: 20px; padding: 28px 32px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); transition: all 0.3s; }
+        .question-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(0,128,128,0.4); transform: translateY(-4px); }
+        .question-num { flex-shrink: 0; width: 44px; height: 44px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: white; box-shadow: 0 4px 12px rgba(0,128,128,0.4); }
+        .question-text { font-size: 16px; color: rgba(255,255,255,0.9); line-height: 1.6; }
+
+        /* IS / IS NOT */
+        .is-isnot { padding: 160px 0; }
+        .is-isnot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+        .is-isnot-card { padding: 56px; border-radius: var(--radius-xl); height: 100%; }
+        .is-card { background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 100%); color: white; position: relative; overflow: hidden; box-shadow: var(--shadow-2xl); }
+        .is-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal-lighter)); }
+        .isnot-card { background: var(--gray-50); border: 2px dashed var(--gray-300); }
+        .is-isnot-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
+        .is-isnot-icon { width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+        .is-card .is-isnot-icon { background: rgba(255,255,255,0.12); }
+        .isnot-card .is-isnot-icon { background: var(--gray-200); }
+        .is-isnot-title { font-size: 28px; font-weight: 700; }
+        .is-card .is-isnot-title { color: white; }
+        .isnot-card .is-isnot-title { color: var(--gray-500); }
+        .is-isnot-list { display: flex; flex-direction: column; gap: 20px; }
+        .is-isnot-item { display: flex; gap: 16px; font-size: 16px; line-height: 1.6; }
+        .is-card .is-isnot-item { color: rgba(255,255,255,0.9); }
+        .isnot-card .is-isnot-item { color: var(--gray-600); }
+        .is-isnot-check { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-top: 1px; }
+        .is-card .is-isnot-check { background: var(--teal); color: white; }
+        .isnot-card .is-isnot-check { background: var(--gray-300); color: var(--gray-500); }
+
+        /* Architecture */
+        .architecture { padding: 160px 0; }
+        .arch-visual { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-xl); padding: 64px; margin-bottom: 80px; box-shadow: var(--shadow-lg); }
+        .arch-lots { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+        .arch-lot { padding: 36px; border-radius: var(--radius-lg); }
+        .lot-1 { background: linear-gradient(135deg, rgba(0,128,128,0.08) 0%, rgba(0,128,128,0.02) 100%); border: 2px solid rgba(0,128,128,0.2); }
+        .lot-2 { background: linear-gradient(135deg, rgba(0,51,102,0.08) 0%, rgba(0,51,102,0.02) 100%); border: 2px solid rgba(0,51,102,0.2); }
+        .lot-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+        .lot-badge { padding: 8px 20px; border-radius: 100px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+        .lot-1 .lot-badge { background: var(--teal); color: white; }
+        .lot-2 .lot-badge { background: var(--navy); color: white; }
+        .lot-title { font-size: 18px; font-weight: 600; color: var(--gray-700); }
+        .modules-row { display: flex; gap: 16px; }
+        .module-chip { flex: 1; padding: 20px 16px; background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-md); text-align: center; transition: all 0.3s; cursor: pointer; }
+        .module-chip:hover { border-color: var(--teal); transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .module-num { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+        .module-name { font-size: 12px; font-weight: 600; color: var(--gray-600); line-height: 1.4; }
+        .gates-timeline { display: flex; align-items: center; justify-content: space-between; padding: 40px 0; position: relative; }
+        .gates-timeline::before { content: ''; position: absolute; top: 50%; left: 80px; right: 80px; height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold), var(--navy)); border-radius: 2px; transform: translateY(-50%); }
+        .gate { display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative; z-index: 1; }
+        .gate-diamond { width: 56px; height: 56px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); transform: rotate(45deg); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(201,162,39,0.4); border: 3px solid white; }
+        .gate-diamond span { transform: rotate(-45deg); font-weight: 800; font-size: 18px; color: white; }
+        .gate-label { font-size: 13px; font-weight: 600; color: var(--gray-600); text-align: center; max-width: 120px; }
+
+        /* Core Concepts Tabs */
+        .core-concepts { padding: 160px 0; }
+        .concepts-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 64px; flex-wrap: wrap; }
+        .concept-tab { padding: 16px 32px; background: var(--white); border: 2px solid var(--gray-200); border-radius: 100px; font-size: 15px; font-weight: 600; color: var(--gray-600); cursor: pointer; transition: all 0.3s; }
+        .concept-tab:hover { border-color: var(--gray-300); color: var(--gray-700); transform: translateY(-2px); }
+        .concept-tab.active { background: linear-gradient(135deg, var(--navy-deep), var(--navy)); border-color: var(--navy); color: white; box-shadow: 0 8px 24px rgba(0,51,102,0.3); }
+        .concept-panel { display: none; animation: fadeSlide 0.5s ease; }
+        .concept-panel.active { display: block; }
+        @keyframes fadeSlide { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        .concept-detail { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+        .concept-detail-content h3 { font-size: clamp(32px, 3.5vw, 44px); margin-bottom: 24px; }
+        .concept-detail-content .lead { font-size: 18px; color: var(--gray-600); line-height: 1.85; margin-bottom: 40px; }
+        .concept-features { display: flex; flex-direction: column; gap: 20px; }
+        .concept-feature { display: flex; gap: 20px; padding: 24px; background: var(--gray-50); border-radius: var(--radius-md); border-left: 4px solid var(--teal); transition: all 0.3s; }
+        .concept-feature:hover { background: var(--white); box-shadow: var(--shadow-md); transform: translateX(8px); }
+        .concept-feature-icon { flex-shrink: 0; width: 48px; height: 48px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; box-shadow: 0 4px 12px rgba(0,128,128,0.3); }
+        .concept-feature-text h5 { font-size: 16px; margin-bottom: 6px; color: var(--navy); }
+        .concept-feature-text p { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+        .concept-visual { background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-xl); }
+        .concept-visual-title { font-size: 16px; font-weight: 700; margin-bottom: 24px; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+        .concept-visual-title::before { content: ''; width: 4px; height: 20px; background: var(--teal); border-radius: 2px; }
+
+        /* Autonomy Ladder */
+        .autonomy-ladder { display: flex; flex-direction: column; gap: 12px; }
+        .autonomy-level { display: grid; grid-template-columns: 70px 1fr; gap: 20px; padding: 18px 20px; background: var(--gray-50); border-radius: var(--radius-md); border-left: 5px solid var(--gray-300); transition: all 0.3s; }
+        .autonomy-level:hover { background: var(--white); box-shadow: var(--shadow-md); transform: translateX(4px); }
+        .autonomy-level[data-level="L0"] { border-color: var(--gray-400); }
+        .autonomy-level[data-level="L1"] { border-color: var(--blue-accent); }
+        .autonomy-level[data-level="L2"] { border-color: var(--amber-accent); }
+        .autonomy-level[data-level="L3"] { border-color: var(--green-accent); }
+        .autonomy-level[data-level="L4"] { border-color: var(--teal); }
+        .level-badge { font-size: 20px; font-weight: 800; font-family: 'JetBrains Mono', monospace; }
+        .autonomy-level[data-level="L0"] .level-badge { color: var(--gray-500); }
+        .autonomy-level[data-level="L1"] .level-badge { color: var(--blue-accent); }
+        .autonomy-level[data-level="L2"] .level-badge { color: var(--amber-accent); }
+        .autonomy-level[data-level="L3"] .level-badge { color: var(--green-accent); }
+        .autonomy-level[data-level="L4"] .level-badge { color: var(--teal); }
+        .level-info h5 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+        .level-info p { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
+
+        /* DIDA+ Flow */
+        .dida-flow { display: flex; flex-direction: column; gap: 10px; }
+        .dida-step { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-radius: var(--radius-md); position: relative; }
+        .dida-step::after { content: '↓'; position: absolute; bottom: -14px; left: 28px; color: var(--gray-300); font-size: 14px; z-index: 1; }
+        .dida-step:last-child::after { display: none; }
+        .dida-step.core { background: rgba(0,128,128,0.08); border: 1px solid rgba(0,128,128,0.2); }
+        .dida-step.extension { background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.3); }
+        .dida-letter { width: 44px; height: 44px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; color: white; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,128,128,0.3); }
+        .dida-step.extension .dida-letter { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); box-shadow: 0 4px 12px rgba(201,162,39,0.3); }
+        .dida-content h5 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+        .dida-content p { font-size: 13px; color: var(--gray-500); }
+
+        /* ============================================
+           MODULE SECTIONS WITH VISUALS
+           ============================================ */
+        .module-section { padding: 140px 0; border-bottom: 1px solid var(--gray-200); }
+        .module-section:last-of-type { border-bottom: none; }
+        .module-header { display: grid; grid-template-columns: 120px 1fr; gap: 40px; margin-bottom: 64px; align-items: start; }
+        .module-badge-large { width: 120px; height: 120px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; box-shadow: 0 16px 40px rgba(0,51,102,0.35); position: relative; overflow: hidden; }
+        .module-badge-large::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 50%; background: linear-gradient(180deg, rgba(255,255,255,0.1), transparent); }
+        .module-badge-large .module-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.7; margin-bottom: 4px; }
+        .module-badge-large .module-number { font-size: 44px; font-weight: 800; line-height: 1; }
+        .module-header-content h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 20px; }
+        .module-header-content .module-purpose { font-size: 18px; color: var(--gray-600); line-height: 1.75; padding: 24px 28px; background: linear-gradient(135deg, var(--gray-50), var(--white)); border-left: 5px solid var(--teal); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-top: 24px; box-shadow: var(--shadow-sm); }
+        .module-purpose strong { color: var(--teal-dark); }
+
+        /* Heatmap Visual */
+        .heatmap-visual {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            margin: 48px 0;
+            box-shadow: var(--shadow-lg);
+        }
+        .heatmap-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .heatmap-title span {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        .heatmap-container {
+            position: relative;
+            padding: 50px 20px 20px 70px;
+        }
+        .heatmap-axis-y {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+            white-space: nowrap;
+        }
+        .heatmap-axis-x {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gray-500);
+        }
+        
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 60px);
+            gap: 4px;
+            background: var(--gray-200);
+            padding: 4px;
+            border-radius: 12px;
+        }
+        .heatmap-cell {
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .heatmap-cell:hover {
+            transform: scale(1.08);
+            z-index: 10;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        .heatmap-cell.low { background: var(--gray-300); color: var(--gray-600); }
+        .heatmap-cell.medium { background: var(--amber-accent); }
+        .heatmap-cell.high { background: var(--orange-accent); }
+        .heatmap-cell.critical { background: var(--red-accent); }
+        .heatmap-cell.opportunity { background: var(--teal); }
+        
+        .heatmap-cell .dal-marker {
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--navy);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .heatmap-legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-200);
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--gray-600);
+        }
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        /* Scenario Cards Visual */
+        .scenario-visual {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 48px 0;
+        }
+        .scenario-card {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .scenario-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        .scenario-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        .scenario-card.parity::before { background: var(--blue-accent); }
+        .scenario-card.trust::before { background: var(--green-accent); }
+        .scenario-card.platform::before { background: var(--purple-accent); }
+        .scenario-card.stress::before { background: var(--red-accent); }
+        
+        .scenario-letter {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 16px;
+        }
+        .scenario-card.parity .scenario-letter { background: var(--blue-accent); }
+        .scenario-card.trust .scenario-letter { background: var(--green-accent); }
+        .scenario-card.platform .scenario-letter { background: var(--purple-accent); }
+        .scenario-card.stress .scenario-letter { background: var(--red-accent); }
+        
+        .scenario-name { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+        .scenario-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+
+        /* AOM Blueprint Visual */
+        .aom-visual {
+            background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            margin: 48px 0;
+            color: white;
+        }
+        .aom-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .aom-bricks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .aom-brick {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        .aom-brick:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-4px);
+        }
+        .aom-brick-num {
+            width: 32px;
+            height: 32px;
+            background: var(--teal);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        .aom-brick-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .aom-brick-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+        /* Work Chart Visual */
+        .workchart-visual {
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            margin: 48px 0;
+            overflow: hidden;
+        }
+        .workchart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .workchart-table th {
+            background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .workchart-table th:first-child { border-radius: 12px 0 0 0; }
+        .workchart-table th:last-child { border-radius: 0 12px 0 0; text-align: center; }
+        .workchart-table th:not(:first-child) { text-align: center; }
+        .workchart-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+        .workchart-table tr:hover td { background: var(--gray-50); }
+        .workchart-table td:first-child { font-weight: 600; color: var(--navy); }
+        .workchart-table td:not(:first-child) { text-align: center; }
+        .workchart-symbol {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .workchart-symbol.performs { background: rgba(0,128,128,0.1); color: var(--teal); }
+        .workchart-symbol.decides { background: rgba(201,162,39,0.15); color: var(--gold-dark); }
+        .workchart-symbol.accountable { background: var(--navy); color: white; }
+
+        /* Submodules */
+        .submodules { margin-bottom: 64px; }
+        .submodules-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray-500); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+        .submodules-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+        .submodule { border: 2px solid var(--gray-200); border-radius: var(--radius-md); margin-bottom: 14px; overflow: hidden; transition: all 0.3s; }
+        .submodule:hover { border-color: var(--gray-300); }
+        .submodule.active { border-color: var(--teal); box-shadow: var(--shadow-lg), 0 0 0 4px rgba(0,128,128,0.08); }
+        .submodule-header { display: flex; align-items: center; gap: 16px; padding: 22px 28px; cursor: pointer; background: var(--white); transition: background 0.2s; }
+        .submodule-header:hover { background: var(--gray-50); }
+        .submodule.active .submodule-header { background: rgba(0,128,128,0.04); border-bottom: 1px solid rgba(0,128,128,0.15); }
+        .submodule-code { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: var(--teal); background: rgba(0,128,128,0.1); padding: 6px 12px; border-radius: 8px; }
+        .submodule-title { flex: 1; font-size: 16px; font-weight: 600; color: var(--navy); }
+        .submodule-toggle { width: 32px; height: 32px; background: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gray-500); font-size: 14px; transition: all 0.3s; }
+        .submodule.active .submodule-toggle { background: var(--teal); color: white; transform: rotate(180deg); }
+        .submodule-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .submodule.active .submodule-content { max-height: 3000px; }
+        .submodule-body { padding: 28px; background: var(--gray-50); }
+        .submodule-body p { font-size: 15px; color: var(--gray-600); line-height: 1.75; margin-bottom: 20px; }
+        .submodule-body p:last-child { margin-bottom: 0; }
+        .submodule-body ul { display: flex; flex-direction: column; gap: 12px; }
+        .submodule-body li { font-size: 14px; color: var(--gray-700); padding-left: 24px; position: relative; line-height: 1.6; }
+        .submodule-body li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-weight: 600; }
+        .submodule-body li strong { color: var(--navy); }
+
+        /* Outputs */
+        .outputs-section { margin-bottom: 64px; }
+        .outputs-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gray-500); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+        .outputs-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+        .outputs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .output-card { display: flex; align-items: flex-start; gap: 18px; padding: 28px; background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-md); transition: all 0.3s; }
+        .output-card:hover { border-color: var(--teal); transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .output-icon { width: 52px; height: 52px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; flex-shrink: 0; box-shadow: 0 6px 16px rgba(0,128,128,0.3); }
+        .output-info h5 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+        .output-info p { font-size: 14px; color: var(--gray-500); line-height: 1.5; }
+
+        /* Gate Box */
+        .gate-box { background: linear-gradient(135deg, rgba(201,162,39,0.12), rgba(201,162,39,0.04)); border: 2px solid rgba(201,162,39,0.3); border-radius: var(--radius-lg); padding: 36px; }
+        .gate-box-header { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+        .gate-box-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); transform: rotate(45deg); border-radius: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(201,162,39,0.4); }
+        .gate-box-icon span { transform: rotate(-45deg); font-size: 20px; font-weight: 800; color: white; }
+        .gate-box-title { font-size: 20px; font-weight: 700; color: var(--gold-dark); }
+        .gate-box-subtitle { font-size: 14px; color: var(--gray-600); margin-top: 2px; }
+        .gate-decisions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .gate-decision { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--gray-700); line-height: 1.5; padding: 12px 16px; background: rgba(255,255,255,0.6); border-radius: 8px; }
+        .gate-decision::before { content: '◆'; color: var(--gold); font-size: 12px; margin-top: 3px; }
+
+        /* Assets */
+        .assets-section { padding: 160px 0; }
+        .assets-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        .asset-card { padding: 36px; background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-lg); transition: all 0.3s; position: relative; overflow: hidden; }
+        .asset-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--navy), var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+        .asset-card:hover { border-color: var(--teal); box-shadow: var(--shadow-xl); transform: translateY(-6px); }
+        .asset-card:hover::before { transform: scaleX(1); }
+        .asset-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .asset-code { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: white; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); padding: 8px 14px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,51,102,0.3); }
+        .asset-name { font-size: 19px; font-weight: 700; color: var(--navy); }
+        .asset-purpose { font-size: 15px; color: var(--gray-600); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--gray-200); line-height: 1.6; }
+        .asset-details { font-size: 14px; color: var(--gray-500); line-height: 1.7; }
+
+        /* Base Camps */
+        .basecamps-section { padding: 160px 0; }
+        .basecamps-timeline { position: relative; padding-left: 100px; }
+        .basecamps-timeline::before { content: ''; position: absolute; left: 44px; top: 0; bottom: 0; width: 6px; background: linear-gradient(180deg, var(--teal), var(--teal-light), var(--gold), var(--navy)); border-radius: 3px; }
+        .basecamp { position: relative; margin-bottom: 48px; padding: 36px; background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-lg); transition: all 0.3s; }
+        .basecamp:hover { border-color: var(--teal); box-shadow: var(--shadow-xl); transform: translateX(8px); }
+        .basecamp::before { content: ''; position: absolute; left: -68px; top: 40px; width: 28px; height: 28px; background: var(--teal); border: 5px solid var(--white); border-radius: 50%; box-shadow: 0 0 0 6px rgba(0,128,128,0.2), 0 4px 12px rgba(0,128,128,0.3); }
+        .basecamp:nth-child(2)::before { background: var(--teal-light); }
+        .basecamp:nth-child(3)::before { background: var(--gold); }
+        .basecamp:nth-child(4)::before { background: var(--navy); }
+        .basecamp-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .basecamp-badge { padding: 8px 20px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); color: white; font-size: 13px; font-weight: 700; border-radius: 100px; box-shadow: 0 4px 12px rgba(0,51,102,0.3); }
+        .basecamp-duration { font-size: 15px; color: var(--gray-500); font-weight: 600; }
+        .basecamp h4 { font-size: 22px; margin-bottom: 20px; }
+        .basecamp-outputs { display: flex; flex-wrap: wrap; gap: 10px; }
+        .basecamp-output { padding: 8px 18px; background: var(--gray-100); border-radius: 100px; font-size: 14px; color: var(--gray-600); transition: all 0.2s; }
+        .basecamp-output:hover { background: rgba(0,128,128,0.1); color: var(--teal); }
+
+        /* Commercial */
+        .commercial-section { padding: 160px 0; }
+        .offers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }
+        .offer-card { padding: 44px; background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-xl); transition: all 0.4s; position: relative; }
+        .offer-card:hover { border-color: var(--teal); box-shadow: var(--shadow-2xl); transform: translateY(-10px); }
+        .offer-card.featured { border-color: var(--teal); background: linear-gradient(135deg, rgba(0,128,128,0.04), rgba(0,128,128,0.01)); }
+        .offer-card.featured::before { content: 'Recommended'; position: absolute; top: -14px; left: 36px; padding: 6px 20px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: white; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 100px; box-shadow: 0 4px 12px rgba(0,128,128,0.4); }
+        .offer-header { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--gray-200); }
+        .offer-number { font-size: 12px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; }
+        .offer-name { font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+        .offer-duration { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: var(--gray-100); border-radius: 100px; font-size: 15px; font-weight: 600; color: var(--gray-600); }
+        .offer-scope { margin-bottom: 0; }
+        .offer-scope-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-500); margin-bottom: 16px; }
+        .offer-scope-list { display: flex; flex-direction: column; gap: 12px; }
+        .offer-scope-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--gray-700); line-height: 1.5; }
+        .offer-scope-item::before { content: '✓'; color: var(--teal); font-weight: 700; font-size: 14px; margin-top: 2px; }
+        .positioning-note { text-align: center; margin-top: 64px; padding: 32px 48px; background: var(--gray-100); border-radius: var(--radius-lg); border: 1px dashed var(--gray-300); }
+        .positioning-note p { font-size: 15px; color: var(--gray-600); }
+        .positioning-note strong { color: var(--navy); }
+
+        /* Footer */
+        footer { background: linear-gradient(180deg, var(--navy-deep), var(--navy-darker)); color: white; padding: 100px 0 48px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: start; padding-bottom: 48px; margin-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+        .footer-tagline { font-size: 16px; color: rgba(255,255,255,0.6); }
+        .footer-heritage { margin-top: 20px; padding: 12px 20px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 13px; color: rgba(255,255,255,0.5); }
+        .footer-note { font-size: 14px; color: rgba(255,255,255,0.5); text-align: right; line-height: 1.7; }
+        .footer-bottom { text-align: center; font-size: 13px; color: rgba(255,255,255,0.35); }
+
+        /* Responsive */
+        @media (max-width: 1280px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 80px; }
+            .hero-description { margin: 0 auto 24px; }
+            .hero-stats { justify-content: center; }
+            .hero-actions { justify-content: center; }
+            .hero-card { max-width: 600px; margin: 0 auto; }
+            .transformation-visual { grid-template-columns: 1fr; gap: 40px; }
+            .transform-arrow { transform: rotate(90deg); margin: 20px 0; }
+        }
+        @media (max-width: 1024px) {
+            .container { padding: 0 32px; }
+            .consequences-grid { grid-template-columns: 1fr; gap: 64px; }
+            .consequences-intro { position: static; }
+            .is-isnot-grid { grid-template-columns: 1fr; }
+            .arch-lots { grid-template-columns: 1fr; }
+            .concept-detail { grid-template-columns: 1fr; gap: 48px; }
+            .offers-grid { grid-template-columns: 1fr; }
+            .assets-grid { grid-template-columns: 1fr; }
+            .questions-grid { grid-template-columns: 1fr; }
+            .gate-decisions { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .cost-value-grid { grid-template-columns: 1fr; }
+            .role-evolution { grid-template-columns: repeat(2, 1fr); }
+            .scenario-visual { grid-template-columns: repeat(2, 1fr); }
+            .aom-bricks { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .concepts-grid { grid-template-columns: 1fr; }
+            .hero-stats { flex-direction: column; gap: 24px; }
+            .module-header { grid-template-columns: 1fr; text-align: center; }
+            .module-badge-large { margin: 0 auto 24px; }
+            .modules-row { flex-direction: column; }
+            .gates-timeline { flex-wrap: wrap; gap: 32px; justify-content: center; }
+            .gates-timeline::before { display: none; }
+            .basecamps-timeline { padding-left: 48px; }
+            .basecamps-timeline::before { left: 16px; width: 4px; }
+            .basecamp::before { left: -40px; width: 22px; height: 22px; }
+            .footer-content { flex-direction: column; gap: 32px; }
+            .footer-note { text-align: left; }
+            .role-evolution { grid-template-columns: 1fr; }
+            .scenario-visual { grid-template-columns: 1fr; }
+            .heatmap-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 20px; }
+            .hero-title { font-size: 44px; }
+            .section-title { font-size: 32px; }
+            .btn { width: 100%; }
+            .btn-lg { padding: 16px 32px; }
+            .concepts-tabs { flex-direction: column; }
+            .concept-tab { width: 100%; text-align: center; }
+            .part-number { width: 80px; height: 80px; font-size: 32px; }
+            .aom-bricks { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <nav class="main-nav" id="mainNav">
+        <div class="container nav-content">
+            <a href="#top" class="logo"><span class="logo-main">CVA</span><span class="logo-dawn">DAWN®</span></a>
+            <div class="nav-links">
+                <a href="#part1" class="nav-link">Agentic AI</a>
+                <a href="#diamond" class="nav-link">Organisation</a>
+                <a href="#economics" class="nav-link">Économie</a>
+                <div class="nav-divider"></div>
+                <a href="#part2" class="nav-link">Methodology</a>
+                <a href="#modules" class="nav-link">Modules</a>
+                <a href="#assets" class="nav-link">Assets</a>
+                <a href="#offers" class="nav-link">Offers</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero section-dark" id="top">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge"><span class="hero-badge-dot"></span>CVA Flagship Methodology</div>
+                <h1 class="hero-title">DAWN®</h1>
+                <p class="hero-title-sub">Designing Agentic Work Networks</p>
+                <p class="hero-description">A CEO-level methodology to redefine competitive advantage, operating model, governance, and workforce for an enterprise where execution increasingly happens through autonomous agents.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat"><div class="hero-stat-value">2</div><div class="hero-stat-label">Lots</div></div>
+                    <div class="hero-stat"><div class="hero-stat-value">5</div><div class="hero-stat-label">Modules</div></div>
+                    <div class="hero-stat"><div class="hero-stat-value">3</div><div class="hero-stat-label">Decision Gates</div></div>
+                    <div class="hero-stat"><div class="hero-stat-value">36</div><div class="hero-stat-label">Month Trajectory</div></div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#part1" class="btn btn-primary btn-lg">Explore Methodology →</a>
+                    <a href="#architecture" class="btn btn-ghost btn-lg">View Architecture</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <div class="hero-card-icon">◆</div>
+                    <div><div class="hero-card-title">Preparing for 2026–2030</div><div class="hero-card-subtitle">The Agentic Age requires a new playbook</div></div>
+                </div>
+                <div class="hero-card-body">
+                    <div class="hero-card-section">
+                        <div class="hero-card-section-title">The Challenge Today</div>
+                        <div class="hero-card-list">
+                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>AI pilots proliferate but don't scale to enterprise level</span></div>
+                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>Decision rights between humans and agents remain unclear</span></div>
+                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>Governance is bolted-on rather than designed-in</span></div>
+                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>Value creation is not systematically tracked</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-card-section">
+                        <div class="hero-card-section-title">DAWN® Approach</div>
+                        <div class="hero-card-list">
+                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Future-back strategy with explicit scenario planning</span></div>
+                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Decision-Action Loops (DALs) as the unit of design</span></div>
+                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Bounded autonomy with clear escalation paths</span></div>
+                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Base camps trajectory with decision gates</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PART 1 -->
+    <div class="part-divider section-light" id="part1">
+        <div class="part-number">1</div>
+        <div class="part-label">Part One</div>
+        <h2 class="part-title">Agentic AI: Concepts & CVA Convictions</h2>
+    </div>
+
+    <!-- What is Agentic AI -->
+    <section class="section-light" style="padding: 120px 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Definition</span>
+                <h2 class="section-title">What is Agentic AI?</h2>
+                <p class="section-subtitle">Understanding the paradigm shift from assistance to delegated execution — the foundation for everything that follows</p>
+            </div>
+            <div class="concepts-grid">
+                <div class="concept-card">
+                    <div class="concept-icon">🎯</div>
+                    <h3 class="concept-title">Goal-Directed Agency</h3>
+                    <p class="concept-text">Autonomous agents don't just analyze or advise—they <strong>decide, execute multi-step tasks, and coordinate</strong> with tools and other agents to achieve objectives with minimal human intervention.</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-icon">⚡</div>
+                    <h3 class="concept-title">Beyond Automation</h3>
+                    <p class="concept-text">Unlike RPA or rule-based systems, agentic AI is <strong>adaptive and context-aware</strong>. Agents handle novel situations, adjust plans dynamically, and operate in environments with uncertainty.</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-icon">🔗</div>
+                    <h3 class="concept-title">Orchestrated Ecosystems</h3>
+                    <p class="concept-text">The most powerful applications involve <strong>multiple specialized agents collaborating</strong>—passing tasks, negotiating resources, working in parallel—coordinated by an orchestration layer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Changes Everything -->
+    <section class="consequences-section section-gradient">
+        <div class="container">
+            <div class="consequences-grid">
+                <div class="consequences-intro">
+                    <span class="tag">Strategic Shift</span>
+                    <h2>Why "Agentic" Changes the Enterprise</h2>
+                    <p>Agentic AI shifts from "assistance" to <strong>delegated execution</strong>. Organizations must fundamentally redesign how work, decisions, and accountability operate.</p>
+                    <p>This is not an IT transformation. It's an <strong>operating model transformation</strong> that touches strategy, governance, organization, and workforce simultaneously.</p>
+                    <p>The CEO and ExCo cannot delegate this to "AI teams." These are strategic choices that will define competitive positioning for the next decade.</p>
+                </div>
+                <div class="consequence-cards">
+                    <div class="consequence-card">
+                        <div class="consequence-number">1</div>
+                        <div class="consequence-content">
+                            <h4>Work becomes a network of goal-driven workflows</h4>
+                            <p>Not sequential processes, but interconnected <strong>Decision-Action Loops (DALs)</strong> that can be delegated, monitored, and optimized as autonomous units.</p>
+                        </div>
+                    </div>
+                    <div class="consequence-card">
+                        <div class="consequence-number">2</div>
+                        <div class="consequence-content">
+                            <h4>Decision rights become the strategic bottleneck</h4>
+                            <p>The critical question: <strong>who (human or agent) is allowed to decide what, under which conditions, with what oversight?</strong></p>
+                        </div>
+                    </div>
+                    <div class="consequence-card">
+                        <div class="consequence-number">3</div>
+                        <div class="consequence-content">
+                            <h4>Governance becomes an enabler, not a brake</h4>
+                            <p><strong>Bounded autonomy + auditability</strong> transforms governance from friction into an accelerator for scale.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         NEW SECTION: PYRAMID TO DIAMOND
+         ============================================ -->
+    <section class="org-transformation section-light" id="diamond">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Organizational Paradigm Shift</span>
+                <h2 class="section-title">From Pyramid to Diamond</h2>
+                <p class="section-subtitle">The agentic enterprise requires a fundamental redesign of organizational structure and management roles — not incremental adjustment</p>
+            </div>
+
+            <!-- Visual Transformation -->
+            <div class="transformation-visual">
+                <!-- PYRAMID -->
+                <div class="pyramid-container">
+                    <div class="pyramid-label">Traditional Model</div>
+                    <div class="pyramid">
+                        <div class="pyramid-level pyramid-level-1">CEO / ExCo</div>
+                        <div class="pyramid-level pyramid-level-2">Middle Management</div>
+                        <div class="pyramid-level pyramid-level-3">Supervisors / Team Leads</div>
+                        <div class="pyramid-level pyramid-level-4">Operational Execution</div>
+                    </div>
+                    <div style="margin-top: 24px; font-size: 13px; color: var(--gray-500); line-height: 1.6;">
+                        <strong style="color: var(--gray-700);">Logic:</strong> Information flows up, decisions flow down<br>
+                        <strong style="color: var(--gray-700);">Scaling:</strong> Add headcount to increase capacity<br>
+                        <strong style="color: var(--gray-700);">Control:</strong> Hierarchical approval chains
+                    </div>
+                </div>
+
+                <!-- ARROW -->
+                <div class="transform-arrow">
+                    <div class="arrow-line"></div>
+                    <div class="arrow-text">Agentic<br>Shift</div>
+                </div>
+
+                <!-- DIAMOND -->
+                <div class="diamond-container">
+                    <div class="diamond-label">Agentic Model</div>
+                    <div class="diamond">
+                        <div class="diamond-level diamond-level-1">Strategic Direction</div>
+                        <div class="diamond-level diamond-level-2">
+                            Orchestration & Supervision
+                            <span class="agent-badge">🤖 + 👤</span>
+                        </div>
+                        <div class="diamond-level diamond-level-3">Exception Handling</div>
+                        <div class="diamond-level diamond-level-4">
+                            Agent Execution
+                        </div>
+                    </div>
+                    <div style="margin-top: 24px; font-size: 13px; color: var(--gray-500); line-height: 1.6;">
+                        <strong style="color: var(--teal-dark);">Logic:</strong> Agents execute, humans orchestrate & decide<br>
+                        <strong style="color: var(--teal-dark);">Scaling:</strong> Add agents, maintain human oversight<br>
+                        <strong style="color: var(--teal-dark);">Control:</strong> Bounded autonomy with escalation
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Insight Box -->
+            <div style="background: linear-gradient(135deg, var(--navy-deep), var(--navy)); border-radius: var(--radius-xl); padding: 48px; color: white; margin-bottom: 80px; text-align: center;">
+                <div style="font-size: 22px; font-weight: 300; line-height: 1.7; max-width: 900px; margin: 0 auto;">
+                    <strong style="color: var(--teal-light);">The Diamond Effect:</strong> The middle layer <em>expands</em> in strategic importance while <em>contracting</em> in headcount. 
+                    Fewer managers orchestrate more capacity. The base <em>compresses</em> as agents absorb routine execution.
+                </div>
+            </div>
+
+            <!-- Role Evolution -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 32px; text-align: center; margin-bottom: 48px;">The Four New Management Archetypes</h3>
+            </div>
+
+            <div class="role-evolution">
+                <div class="role-card strategic">
+                    <div class="role-icon">🎯</div>
+                    <div class="role-title">Strategic Architect</div>
+                    <div class="role-subtitle">C-Suite / ExCo</div>
+                    <div class="role-tasks">
+                        <div class="role-task">Define which DALs to autonomize vs. protect</div>
+                        <div class="role-task">Set autonomy ceilings by decision criticality</div>
+                        <div class="role-task">Arbitrate moat investments (data, trust, orchestration)</div>
+                        <div class="role-task">Own scenario-based strategy and option portfolio</div>
+                        <div class="role-task">Accountable for all agent decisions (legally, ethically)</div>
+                    </div>
+                </div>
+
+                <div class="role-card orchestrator">
+                    <div class="role-icon">🔄</div>
+                    <div class="role-title">DAL Orchestrator</div>
+                    <div class="role-subtitle">Former Middle Manager</div>
+                    <div class="role-tasks">
+                        <div class="role-task">Own 5–10 DALs end-to-end (business outcomes)</div>
+                        <div class="role-task">Design DIDA+ chains and bounded autonomy</div>
+                        <div class="role-task">Monitor agent performance and drift signals</div>
+                        <div class="role-task">Coordinate cross-DAL dependencies</div>
+                        <div class="role-task">Decide autonomy level progressions (L1→L2→L3)</div>
+                    </div>
+                </div>
+
+                <div class="role-card supervisor">
+                    <div class="role-icon">⚡</div>
+                    <div class="role-title">Exception Handler</div>
+                    <div class="role-subtitle">Former Team Lead</div>
+                    <div class="role-tasks">
+                        <div class="role-task">Process escalations from agents in real-time</div>
+                        <div class="role-task">Make judgment calls on edge cases</div>
+                        <div class="role-task">Validate high-stakes decisions (L2 human-in-loop)</div>
+                        <div class="role-task">Document exception patterns for learning loop</div>
+                        <div class="role-task">Trigger kill switch when boundaries breached</div>
+                    </div>
+                </div>
+
+                <div class="role-card specialist">
+                    <div class="role-icon">🔬</div>
+                    <div class="role-title">Trust & Governance Lead</div>
+                    <div class="role-subtitle">New Critical Role</div>
+                    <div class="role-tasks">
+                        <div class="role-task">Maintain agent registry and permission matrix</div>
+                        <div class="role-task">Audit decision trails and evidence packs</div>
+                        <div class="role-task">Monitor compliance with governance framework</div>
+                        <div class="role-task">Lead incident response and root cause analysis</div>
+                        <div class="role-task">Interface with regulators on explainability</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supervision Ratio Visual -->
+            <div style="margin-top: 80px; background: var(--gray-50); border-radius: var(--radius-xl); padding: 48px;">
+                <h4 style="text-align: center; font-size: 20px; margin-bottom: 32px;">Supervision Ratio Evolution</h4>
+                <div style="display: grid; grid-template-columns: 1fr 60px 1fr; gap: 32px; align-items: center; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center; padding: 32px; background: white; border-radius: 16px; border: 2px dashed var(--gray-300);">
+                        <div style="font-size: 48px; font-weight: 800; color: var(--gray-400); font-family: 'JetBrains Mono', monospace;">1:8</div>
+                        <div style="font-size: 14px; color: var(--gray-500); margin-top: 8px;">Traditional<br>Manager : FTEs</div>
+                    </div>
+                    <div style="text-align: center; color: var(--teal); font-size: 24px;">→</div>
+                    <div style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(0,128,128,0.08), rgba(0,128,128,0.02)); border-radius: 16px; border: 2px solid var(--teal);">
+                        <div style="font-size: 48px; font-weight: 800; color: var(--teal); font-family: 'JetBrains Mono', monospace;">1:50</div>
+                        <div style="font-size: 14px; color: var(--gray-600); margin-top: 8px;">Agentic<br>Orchestrator : DALs/Agents</div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 14px; color: var(--gray-500); margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    <strong>Implication:</strong> The same orchestrator who managed 8 direct reports now oversees 50+ decision-action loops through agents. 
+                    The skill shifts from people management to <strong>system orchestration</strong> and <strong>exception judgment</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         NEW SECTION: COST & VALUE ECONOMICS
+         ============================================ -->
+    <section class="cost-value-section section-gray" id="economics">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Strategic Economics</span>
+                <h2 class="section-title">The New Economics of Agentic Enterprises</h2>
+                <p class="section-subtitle">Agentic transformation fundamentally reshapes both the cost structure and the sources of competitive advantage — understanding this is prerequisite to any investment decision</p>
+            </div>
+
+            <div class="cost-value-grid">
+                <!-- COST STRUCTURE -->
+                <div class="economics-card cost-card">
+                    <div class="economics-header">
+                        <div class="economics-icon">📉</div>
+                        <div class="economics-title">Cost Structure Transformation</div>
+                    </div>
+                    
+                    <div class="cost-stack">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-500); margin-bottom: 12px;">Traditional Cost Stack (Pre-Agentic)</div>
+                        
+                        <div class="cost-layer traditional">
+                            <div class="cost-bar traditional" style="width: 80%;"></div>
+                            <span class="cost-label">Operational Labor (execution, data entry, processing)</span>
+                        </div>
+                        <div class="cost-layer traditional">
+                            <div class="cost-bar traditional" style="width: 50%;"></div>
+                            <span class="cost-label">Middle Management (supervision, coordination)</span>
+                        </div>
+                        <div class="cost-layer traditional">
+                            <div class="cost-bar traditional" style="width: 30%;"></div>
+                            <span class="cost-label">IT Infrastructure & Maintenance</span>
+                        </div>
+                    </div>
+
+                    <div style="margin: 32px 0; text-align: center; color: var(--teal); font-weight: 600;">↓ Agentic Transformation ↓</div>
+
+                    <div class="cost-stack">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 12px;">New Cost Stack (Agentic)</div>
+                        
+                        <div class="cost-layer new">
+                            <div class="cost-bar reduced" style="width: 25%;"></div>
+                            <span class="cost-label">Operational Labor (exceptions only)</span>
+                            <span class="cost-badge down">-70%</span>
+                        </div>
+                        <div class="cost-layer new">
+                            <div class="cost-bar reduced" style="width: 30%;"></div>
+                            <span class="cost-label">Orchestration Layer (fewer, higher-skilled)</span>
+                            <span class="cost-badge down">-40%</span>
+                        </div>
+                        <div class="cost-layer new highlight">
+                            <div class="cost-bar new-cost" style="width: 45%;"></div>
+                            <span class="cost-label">Governance & Control (audit, validation, risk)</span>
+                            <span class="cost-badge new">NEW</span>
+                        </div>
+                        <div class="cost-layer new">
+                            <div class="cost-bar new-cost" style="width: 55%;"></div>
+                            <span class="cost-label">Agent Infrastructure (compute, APIs, orchestration)</span>
+                            <span class="cost-badge up">+150%</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 28px; padding: 20px; background: rgba(220,38,38,0.05); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px;">
+                        <div style="font-size: 14px; font-weight: 700; color: var(--red-dark); margin-bottom: 8px;">⚠️ Critical Insight: The Hidden Cost</div>
+                        <p style="font-size: 13px; color: var(--gray-600); margin: 0; line-height: 1.6;">
+                            Governance costs are systematically underestimated. Audit trails, evidence packs, validation protocols, incident response, and regulatory compliance can represent <strong>15–25% of total agentic operating costs</strong>. 
+                            Ignore this at your peril.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- VALUE CREATION -->
+                <div class="economics-card value-card">
+                    <div class="economics-header">
+                        <div class="economics-icon">📈</div>
+                        <div class="economics-title">Value Creation Drivers</div>
+                    </div>
+                    
+                    <div class="value-drivers">
+                        <div class="value-driver">
+                            <div class="value-metric">
+                                <div class="value-metric-number">10×</div>
+                                <div class="value-metric-unit">faster</div>
+                            </div>
+                            <div class="value-description">
+                                <h5>Cycle Time Compression</h5>
+                                <p>Decisions that took days happen in seconds. Credit approvals, pricing adjustments, claims triage.</p>
+                            </div>
+                        </div>
+                        <div class="value-driver">
+                            <div class="value-metric">
+                                <div class="value-metric-number">24/7</div>
+                                <div class="value-metric-unit">always-on</div>
+                            </div>
+                            <div class="value-description">
+                                <h5>Continuous Operation</h5>
+                                <p>Agents don't sleep, don't take breaks. Monitoring, adjustment, and response happen around the clock.</p>
+                            </div>
+                        </div>
+                        <div class="value-driver">
+                            <div class="value-metric">
+                                <div class="value-metric-number">0.1%</div>
+                                <div class="value-metric-unit">error rate</div>
+                            </div>
+                            <div class="value-description">
+                                <h5>Consistency at Scale</h5>
+                                <p>Within bounds, agents apply the same logic every time. Eliminates human variance and fatigue errors.</p>
+                            </div>
+                        </div>
+                        <div class="value-driver">
+                            <div class="value-metric">
+                                <div class="value-metric-number">∞</div>
+                                <div class="value-metric-unit">scale</div>
+                            </div>
+                            <div class="value-description">
+                                <h5>Non-Linear Scaling</h5>
+                                <p>Capacity scales with compute, not headcount. 10× volume ≠ 10× cost for the first time.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 28px; padding: 20px; background: rgba(5,150,105,0.05); border: 1px solid rgba(5,150,105,0.2); border-radius: 12px;">
+                        <div style="font-size: 14px; font-weight: 700; color: var(--green-dark); margin-bottom: 8px;">💡 Value Realization Key</div>
+                        <p style="font-size: 13px; color: var(--gray-600); margin: 0; line-height: 1.6;">
+                            Value materializes only when autonomy level reaches L3+ <strong>at scale</strong>. 
+                            Pilots at L1-L2 show promise but don't bend the cost curve. 
+                            The breakeven point typically requires 10+ DALs at L3 with stable governance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPETITIVE ADVANTAGE MATRIX -->
+            <div class="advantage-matrix">
+                <div class="matrix-header">
+                    <h3 class="matrix-title">Sources of Competitive Advantage in the Agentic Age</h3>
+                    <p class="matrix-subtitle">When execution is commoditized by agents, where does differentiation come from?</p>
+                </div>
+                
+                <div class="matrix-visual">
+                    <div class="matrix-axis-y">Defensibility (Hard to Replicate) →</div>
+                    <div class="matrix-axis-x">Value Creation Potential →</div>
+                    
+                    <div class="matrix-grid">
+                        <div class="matrix-quadrant">
+                            <div class="quadrant-icon">📊</div>
+                            <div class="quadrant-title">Speed & Efficiency</div>
+                            <div class="quadrant-desc">Faster decisions, lower costs. Real but <strong>temporary</strong> advantage — competitors will match within 12–18 months.</div>
+                        </div>
+                        <div class="matrix-quadrant highlight">
+                            <div class="quadrant-icon">🏰</div>
+                            <div class="quadrant-title">Data Moats</div>
+                            <div class="quadrant-desc">Proprietary data, exclusive rights, superior freshness/quality. <strong>Durable if protected.</strong> Agents are only as good as their data.</div>
+                        </div>
+                        <div class="matrix-quadrant">
+                            <div class="quadrant-icon">🔗</div>
+                            <div class="quadrant-title">Orchestration Capability</div>
+                            <div class="quadrant-desc">Ability to coordinate complex multi-agent workflows, manage exceptions, integrate ecosystems. <strong>Builds over time.</strong></div>
+                        </div>
+                        <div class="matrix-quadrant highlight">
+                            <div class="quadrant-icon">🛡️</div>
+                            <div class="quadrant-title">Trust & Governance</div>
+                            <div class="quadrant-desc">Auditability, regulatory compliance, incident track record. <strong>Winner-takes-trust dynamics</strong> — hardest to replicate once established.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                    <div style="padding: 28px; background: rgba(0,128,128,0.04); border: 1px solid rgba(0,128,128,0.2); border-radius: 16px;">
+                        <h5 style="font-size: 16px; color: var(--teal-dark); margin-bottom: 12px;">🎯 CVA Conviction: Moat Selection</h5>
+                        <p style="font-size: 14px; color: var(--gray-600); line-height: 1.7; margin: 0;">
+                            Enterprises should select <strong>maximum 5–7 moats</strong> to invest in deliberately. 
+                            Spreading resources across all fronts dilutes impact. 
+                            The choice of moats is a <strong>CEO-level strategic decision</strong> — not a technology team default.
+                        </p>
+                    </div>
+                    <div style="padding: 28px; background: rgba(201,162,39,0.08); border: 1px solid rgba(201,162,39,0.25); border-radius: 16px;">
+                        <h5 style="font-size: 16px; color: var(--gold-dark); margin-bottom: 12px;">⚠️ The Parity Trap</h5>
+                        <p style="font-size: 14px; color: var(--gray-600); line-height: 1.7; margin: 0;">
+                            If you only pursue speed/efficiency, you achieve <strong>"agentic parity"</strong> — the same capabilities as competitors. 
+                            Value created is competed away. 
+                            Sustainable advantage requires investing in <strong>defensible moats</strong> that compound over time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Net Economic Impact -->
+            <div style="margin-top: 80px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); border-radius: var(--radius-xl); padding: 56px; color: white;">
+                <h3 style="text-align: center; font-size: 28px; margin-bottom: 48px;">Net Economic Impact Model</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 60px 1fr; gap: 24px; align-items: center;">
+                    <div style="text-align: center; padding: 32px; background: rgba(255,255,255,0.05); border-radius: 16px;">
+                        <div style="font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">Labor Savings</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--green-accent);">-40%</div>
+                        <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px;">Execution + Management</div>
+                    </div>
+                    <div style="text-align: center; padding: 32px; background: rgba(255,255,255,0.05); border-radius: 16px;">
+                        <div style="font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">New Costs</div>
+                        <div style="font-size: 36px; font-weight: 700; color: var(--amber-accent);">+25%</div>
+                        <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px;">Governance + Infrastructure</div>
+                    </div>
+                    <div style="color: var(--teal-light); font-size: 32px; text-align: center;">=</div>
+                    <div style="text-align: center; padding: 32px; background: rgba(0,128,128,0.2); border: 2px solid var(--teal); border-radius: 16px;">
+                        <div style="font-size: 14px; color: var(--teal-light); margin-bottom: 8px;">Net Operating Leverage</div>
+                        <div style="font-size: 48px; font-weight: 800; color: var(--teal-light);">15–20%</div>
+                        <div style="font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px;">At Scale (BC2+)</div>
+                    </div>
+                </div>
+                <p style="text-align: center; font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 32px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <strong style="color: var(--teal-light);">Timeline to breakeven:</strong> 18–24 months from launch of lighthouses (BC1). 
+                    Value compounds non-linearly after BC2 as governance costs amortize across more DALs. 
+                    Patience and sequencing discipline are essential.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Questions -->
+    <section class="ceo-questions section-light" id="concepts">
+        <div class="container">
+            <div class="questions-wrapper">
+                <div class="questions-header">
+                    <span class="tag tag-light">CEO Agenda</span>
+                    <h2>The Questions DAWN® Answers</h2>
+                    <p>CEO-grade questions that cannot be delegated to "AI teams" — these require ExCo ownership</p>
+                </div>
+                <div class="questions-grid">
+                    <div class="question-item"><div class="question-num">1</div><div class="question-text">Where will value shift in our value chain when agents commoditize execution across the industry?</div></div>
+                    <div class="question-item"><div class="question-num">2</div><div class="question-text">Which capabilities remain differentiating when competitors also go agentic—and which become table stakes?</div></div>
+                    <div class="question-item"><div class="question-num">3</div><div class="question-text">What is our target operating model (Humans + Agents + Systems) and decision architecture?</div></div>
+                    <div class="question-item"><div class="question-num">4</div><div class="question-text">How do we reskill, recruit, and redesign the organization without breaking operational continuity or trust?</div></div>
+                    <div class="question-item"><div class="question-num">5</div><div class="question-text">What governance framework makes autonomy safe—and therefore scalable—while satisfying regulators?</div></div>
+                    <div class="question-item"><div class="question-num">6</div><div class="question-text">What transformation trajectory (base camps), at what pace, with what investment logic should we execute?</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IS / IS NOT -->
+    <section class="is-isnot section-gray">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Scope Definition</span>
+                <h2 class="section-title">What DAWN® Is (and Is Not)</h2>
+                <p class="section-subtitle">Clear boundaries ensure focused value delivery and prevent scope creep into implementation</p>
+            </div>
+            <div class="is-isnot-grid">
+                <div class="is-isnot-card is-card">
+                    <div class="is-isnot-header"><div class="is-isnot-icon">✓</div><h3 class="is-isnot-title">DAWN® IS</h3></div>
+                    <ul class="is-isnot-list">
+                        <li class="is-isnot-item"><span class="is-isnot-check">✓</span><span>A <strong>CEO-level</strong> strategy and operating model methodology for the agentic age</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✓</span><span><strong>Future-back</strong> + decision-oriented: explicit bets, trade-offs, stop/go criteria at each gate</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✓</span><span><strong>Organization & workforce redesign</strong> for a hybrid enterprise (Humans + Agents + Systems)</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✓</span><span><strong>Governance-by-design</strong>: risk tiering, trust architecture, accountability framework</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✓</span><span>Built on proven CVA heritage: <strong>LEAD®</strong> + <strong>CORE®</strong> methodologies</span></li>
+                    </ul>
+                </div>
+                <div class="is-isnot-card isnot-card">
+                    <div class="is-isnot-header"><div class="is-isnot-icon">✕</div><h3 class="is-isnot-title">DAWN® IS NOT</h3></div>
+                    <ul class="is-isnot-list">
+                        <li class="is-isnot-item"><span class="is-isnot-check">✕</span><span>A tool deployment program (no vendor selection, no technical build)</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✕</span><span>A "digital factory" or AI Center of Excellence setup</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✕</span><span>An automation catalog, use case library, or POC factory</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✕</span><span>Technical architecture, MLOps, or AgentOps implementation</span></li>
+                        <li class="is-isnot-item"><span class="is-isnot-check">✕</span><span>A framework without decisions — DAWN® forces explicit trade-offs</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PART 2 -->
+    <div class="part-divider section-light" id="part2">
+        <div class="part-number">2</div>
+        <div class="part-label">Part Two</div>
+        <h2 class="part-title">DAWN® Methodology: Architecture & Modules</h2>
+    </div>
+
+    <!-- Architecture -->
+    <section class="architecture section-light" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Methodology Architecture</span>
+                <h2 class="section-title">2 Lots / 5 Modules / 3 Gates</h2>
+                <p class="section-subtitle">Structured progression from strategic baseline to transformation trajectory</p>
+            </div>
+            <div class="arch-visual">
+                <div class="arch-lots">
+                    <div class="arch-lot lot-1">
+                        <div class="lot-header"><span class="lot-badge">Lot 1</span><span class="lot-title">Future-back baseline & target design</span></div>
+                        <div class="modules-row">
+                            <div class="module-chip" onclick="scrollToModule('m1')"><div class="module-num">M1</div><div class="module-name">Agentic Battlefield & Exposure</div></div>
+                            <div class="module-chip" onclick="scrollToModule('m2')"><div class="module-num">M2</div><div class="module-name">Endgame Scenarios & Moves</div></div>
+                            <div class="module-chip" onclick="scrollToModule('m3')"><div class="module-num">M3</div><div class="module-name">Advantage System & Target AOM</div></div>
+                        </div>
+                    </div>
+                    <div class="arch-lot lot-2">
+                        <div class="lot-header"><span class="lot-badge">Lot 2</span><span class="lot-title">Gap analysis, governance & trajectory</span></div>
+                        <div class="modules-row">
+                            <div class="module-chip" onclick="scrollToModule('m4')"><div class="module-num">M4</div><div class="module-name">Organisation & Workforce Blueprint</div></div>
+                            <div class="module-chip" onclick="scrollToModule('m5')"><div class="module-num">M5</div><div class="module-name">Governance, Risk & Trajectory</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gates-timeline">
+                    <div class="gate"><div class="gate-diamond"><span>A</span></div><div class="gate-label">Battlefield & DALs validated</div></div>
+                    <div class="gate"><div class="gate-diamond"><span>B</span></div><div class="gate-label">Scenarios & moves approved</div></div>
+                    <div class="gate"><div class="gate-diamond"><span>C</span></div><div class="gate-label">AOM & scale decision</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Concepts -->
+    <section class="core-concepts section-gray" id="core-concepts">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Foundational Concepts</span>
+                <h2 class="section-title">The 5 DAWN® Building Blocks</h2>
+                <p class="section-subtitle">Standardized concepts so the ExCo can make consistent decisions across all domains</p>
+            </div>
+            <div class="concepts-tabs">
+                <button class="concept-tab active" onclick="showConceptPanel('dal')">Decision-Action Loops</button>
+                <button class="concept-tab" onclick="showConceptPanel('autonomy')">Autonomy Ladder</button>
+                <button class="concept-tab" onclick="showConceptPanel('bounded')">Bounded Autonomy</button>
+                <button class="concept-tab" onclick="showConceptPanel('workchart')">Work Chart</button>
+                <button class="concept-tab" onclick="showConceptPanel('dida')">DIDA+</button>
+            </div>
+
+            <!-- DAL Panel -->
+            <div class="concept-panel active" id="panel-dal">
+                <div class="concept-detail">
+                    <div class="concept-detail-content">
+                        <h3>Decision-Action Loops (DAL)</h3>
+                        <p class="lead">The fundamental unit of analysis. Each DAL is a "mini decision factory" with clear inputs, reasoning logic, decision rights, and action outputs that can be delegated to agents.</p>
+                        <div class="concept-features">
+                            <div class="concept-feature"><div class="concept-feature-icon">🎯</div><div class="concept-feature-text"><h5>Goal-Oriented</h5><p>Each DAL has explicit business objectives. Examples: Credit eligibility, Pricing exceptions, Fraud detection.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">🔄</div><div class="concept-feature-text"><h5>Stable DIDA Chain</h5><p>Data → Insight → Decision → Action forms a repeatable, auditable flow.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">📊</div><div class="concept-feature-text"><h5>Portfolio Approach</h5><p>30–100 DALs per enterprise, prioritized by value-at-stake and risk exposure.</p></div></div>
+                        </div>
+                    </div>
+                    <div class="concept-visual">
+                        <div class="concept-visual-title">DAL Card Template (Asset A2)</div>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="padding: 14px 18px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); color: white; border-radius: 10px; font-size: 14px;"><strong>Owner</strong> (Business) + <strong>Accountable</strong> (ExCo)</div>
+                            <div style="padding: 14px 18px; background: var(--gray-100); border-radius: 10px; font-size: 14px;"><strong>Business KPI</strong> + <strong>Risk KPI</strong></div>
+                            <div style="padding: 14px 18px; background: rgba(0,128,128,0.1); border: 1px solid rgba(0,128,128,0.2); border-radius: 10px; font-size: 14px;"><strong>DIDA+ Chain</strong> — D→I→D→A + Guardrails + Learning</div>
+                            <div style="padding: 14px 18px; background: var(--gray-100); border-radius: 10px; font-size: 14px;"><strong>Autonomy Target</strong> — L0→L4 at 12/24/36 months</div>
+                            <div style="padding: 14px 18px; background: var(--gray-100); border-radius: 10px; font-size: 14px;"><strong>Bounds</strong> — Quantitative, qualitative, temporal</div>
+                            <div style="padding: 14px 18px; background: rgba(201,162,39,0.1); border-radius: 10px; font-size: 14px;"><strong>Evidence Requirements</strong> — Log, test, prove</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Autonomy Ladder Panel -->
+            <div class="concept-panel" id="panel-autonomy">
+                <div class="concept-detail">
+                    <div class="concept-detail-content">
+                        <h3>Autonomy Ladder (L0–L4)</h3>
+                        <p class="lead">Explicit autonomy tiers prevent vague discussions. Each DAL is assigned a target level based on decision criticality.</p>
+                        <div class="concept-features">
+                            <div class="concept-feature"><div class="concept-feature-icon">📏</div><div class="concept-feature-text"><h5>Graduated Scale</h5><p>From human-only (L0) to full autonomy (L4). Most DALs operate at L1–L3.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">🔐</div><div class="concept-feature-text"><h5>Criticality-Driven</h5><p>Higher stakes = lower autonomy ceiling. Impact × reversibility determines max tier.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">📅</div><div class="concept-feature-text"><h5>Time-Bound Targets</h5><p>Target L at 12/24/36 months with explicit progression conditions.</p></div></div>
+                        </div>
+                    </div>
+                    <div class="concept-visual">
+                        <div class="concept-visual-title">The Five Levels (Asset A3)</div>
+                        <div class="autonomy-ladder">
+                            <div class="autonomy-level" data-level="L4"><div class="level-badge">L4</div><div class="level-info"><h5>Full Autonomy</h5><p>AI decides and acts end-to-end. Rare — low stakes + reversible only.</p></div></div>
+                            <div class="autonomy-level" data-level="L3"><div class="level-badge">L3</div><div class="level-info"><h5>Supervised Autonomy</h5><p>AI decides within bounds. Human oversight on exceptions.</p></div></div>
+                            <div class="autonomy-level" data-level="L2"><div class="level-badge">L2</div><div class="level-info"><h5>Human-in-the-Loop</h5><p>AI decides but every decision validated before execution.</p></div></div>
+                            <div class="autonomy-level" data-level="L1"><div class="level-badge">L1</div><div class="level-info"><h5>AI-Assisted</h5><p>AI proposes, human decides. Starting point for most DALs.</p></div></div>
+                            <div class="autonomy-level" data-level="L0"><div class="level-badge">L0</div><div class="level-info"><h5>Human-Only</h5><p>No AI in decision. Reserved for highest-stakes decisions.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bounded Autonomy Panel -->
+            <div class="concept-panel" id="panel-bounded">
+                <div class="concept-detail">
+                    <div class="concept-detail-content">
+                        <h3>Bounded Autonomy</h3>
+                        <p class="lead">Freedom within rules. Agents operate with delegated authority, but within explicit boundaries that trigger escalation when crossed.</p>
+                        <div class="concept-features">
+                            <div class="concept-feature"><div class="concept-feature-icon">📐</div><div class="concept-feature-text"><h5>Quantitative Bounds</h5><p>Thresholds, limits. Example: approve up to €10K, escalate above.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">🏷️</div><div class="concept-feature-text"><h5>Qualitative Bounds</h5><p>Customer types, products. Example: standard customers only.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">⏰</div><div class="concept-feature-text"><h5>Temporal Bounds</h5><p>Business hours, stress periods, embargo windows.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">🛑</div><div class="concept-feature-text"><h5>Kill Switch</h5><p>Who can stop, on what criteria, with what fallback.</p></div></div>
+                        </div>
+                    </div>
+                    <div class="concept-visual">
+                        <div class="concept-visual-title">Bounds Architecture</div>
+                        <div style="position: relative; padding: 48px 40px; border: 3px dashed var(--gray-300); border-radius: 20px; background: var(--gray-50);">
+                            <div style="position: absolute; top: -14px; left: 24px; background: white; padding: 4px 16px; font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase;">Boundary Zone</div>
+                            <div style="text-align: center; padding: 36px 24px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: white; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 8px 24px rgba(0,128,128,0.3);">
+                                <div style="font-size: 32px; margin-bottom: 8px;">🤖</div>
+                                <div style="font-weight: 700; font-size: 18px;">Agent Action Space</div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <div style="padding: 16px; background: var(--amber-soft); border-radius: 12px; text-align: center;"><div style="font-weight: 700; color: var(--amber-accent);">→ Escalation</div><div style="font-size: 13px; color: var(--gray-600);">Threshold → human review</div></div>
+                                <div style="padding: 16px; background: var(--red-soft); border-radius: 12px; text-align: center;"><div style="font-weight: 700; color: var(--red-accent);">⊘ Kill Switch</div><div style="font-size: 13px; color: var(--gray-600);">Anomaly → stop</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Chart Panel -->
+            <div class="concept-panel" id="panel-workchart">
+                <div class="concept-detail">
+                    <div class="concept-detail-content">
+                        <h3>Work Chart</h3>
+                        <p class="lead">Replaces the org chart with a responsibility map across Humans, Agents, and Systems. Accountability is never "automated away."</p>
+                        <div class="concept-features">
+                            <div class="concept-feature"><div class="concept-feature-icon">👤</div><div class="concept-feature-text"><h5>Human Roles</h5><p>Exception handling, policy, trust relationships, accountability, oversight.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">🤖</div><div class="concept-feature-text"><h5>Agent Roles</h5><p>Routine decisions within bounds, data processing, pattern recognition.</p></div></div>
+                            <div class="concept-feature"><div class="concept-feature-icon">⚙️</div><div class="concept-feature-text"><h5>System Roles</h5><p>Data provision, transaction execution, logging. Deterministic operations.</p></div></div>
+                        </div>
+                    </div>
+                    <div class="concept-visual">
+                        <div class="concept-visual-title">Work Chart Template (Asset A5)</div>
+                        <table class="workchart-table">
+                            <thead><tr><th>Activity</th><th>Human</th><th>Agent</th><th>System</th></tr></thead>
+                            <tbody>
+                                <tr><td>Data gathering & prep</td><td></td><td><span class="workchart-symbol performs">●</span></td><td><span class="workchart-symbol performs">●</span></td></tr>
+                                <tr><td>Analysis & recommendation</td><td></td><td><span class="workchart-symbol performs">●</span></td><td></td></tr>
+                                <tr><td>Standard decision</td><td></td><td><span class="workchart-symbol decides">◆</span></td><td></td></tr>
+                                <tr><td>Exception handling</td><td><span class="workchart-symbol decides">◆</span></td><td></td><td></td></tr>
+                                <tr><td>Accountability</td><td><span class="workchart-symbol accountable">★</span></td><td></td><td></td></tr>
+                            </tbody>
+                        </table>
+                        <div style="margin-top: 16px; font-size: 12px; color: var(--gray-500); display: flex; gap: 20px; justify-content: center;">
+                            <span>● Performs</span><span>◆ Decides</span><span>★ Accountable (always human)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIDA+ Panel -->
+            <div class="concept-panel" id="panel-dida">
+                <div class="concept-detail">
+                    <div class="concept-detail-content">
+                        <h3>DIDA+ (DAWN Extension)</h3>
+                        <p class="lead">CORE® established DIDA. DAWN® extends it with two compulsory layers: <strong>Guardrails</strong> and <strong>Learning Loops</strong>.</p>
+                        <div class="concept-features">
+                            <div class="concept-feature"><div class="concept-feature-icon">🔗</div><div class="concept-feature-text"><h5>CORE DIDA® Foundation</h5><p>Data → Insights → Decision → Action. The proven chain.</p></div></div>
+                            <div class="concept-feature" style="border-left-color: var(--gold);"><div class="concept-feature-icon" style="background: linear-gradient(135deg, var(--gold), var(--gold-dark));">🛡️</div><div class="concept-feature-text"><h5>+ Guardrails (G)</h5><p>Policies, permissions, escalation rules, audit trail requirements.</p></div></div>
+                            <div class="concept-feature" style="border-left-color: var(--gold);"><div class="concept-feature-icon" style="background: linear-gradient(135deg, var(--gold), var(--gold-dark));">🔄</div><div class="concept-feature-text"><h5>+ Learning Loop (L)</h5><p>Feedback, drift detection, retraining triggers, continuous calibration.</p></div></div>
+                        </div>
+                    </div>
+                    <div class="concept-visual">
+                        <div class="concept-visual-title">DIDA+ Template per DAL</div>
+                        <div class="dida-flow">
+                            <div class="dida-step core"><div class="dida-letter">D</div><div class="dida-content"><h5>Data</h5><p>Sources + rights + quality</p></div></div>
+                            <div class="dida-step core"><div class="dida-letter">I</div><div class="dida-content"><h5>Insights</h5><p>Models / agents reasoning</p></div></div>
+                            <div class="dida-step core"><div class="dida-letter">D</div><div class="dida-content"><h5>Decision</h5><p>Autonomy tier + owner</p></div></div>
+                            <div class="dida-step core"><div class="dida-letter">A</div><div class="dida-content"><h5>Action</h5><p>Systems + reversibility</p></div></div>
+                            <div class="dida-step extension"><div class="dida-letter">G</div><div class="dida-content"><h5>Guardrails</h5><p>Controls + evidence pack</p></div></div>
+                            <div class="dida-step extension"><div class="dida-letter">L</div><div class="dida-content"><h5>Learning</h5><p>KPIs + drift triggers</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULES DETAIL
+         ============================================ -->
+    <div id="modules"></div>
+
+    <!-- Module 1 -->
+    <section class="module-section section-light" id="m1">
+        <div class="container">
+            <div class="module-header">
+                <div class="module-badge-large"><span class="module-label">Module</span><span class="module-number">1</span></div>
+                <div class="module-header-content">
+                    <h2>Agentic Battlefield & Exposure Baseline</h2>
+                    <div class="module-purpose"><strong>CEO Decision Unlocked:</strong> Where is the enterprise exposed to agentic disruption, and where can it create differentiated value? Which DALs to prioritize, which to protect?</div>
+                </div>
+            </div>
+
+            <!-- HEATMAP VISUAL -->
+            <div class="heatmap-visual">
+                <div class="heatmap-title">🔥 Agentic Exposure Heatmap <span>Asset A1</span></div>
+                <div class="heatmap-container">
+                    <div class="heatmap-axis-y">Decision Criticality →</div>
+                    <div class="heatmap-axis-x">Value-at-Stake →</div>
+                    <div class="heatmap-grid">
+                        <!-- Row 5 (top - high criticality) -->
+                        <div class="heatmap-cell critical"></div>
+                        <div class="heatmap-cell critical"><div class="dal-marker">D3</div></div>
+                        <div class="heatmap-cell critical"></div>
+                        <div class="heatmap-cell critical"><div class="dal-marker">D7</div></div>
+                        <div class="heatmap-cell critical" style="background: var(--red-dark);"><div class="dal-marker">D1</div></div>
+                        <!-- Row 4 -->
+                        <div class="heatmap-cell high"></div>
+                        <div class="heatmap-cell high"><div class="dal-marker">D9</div></div>
+                        <div class="heatmap-cell high"></div>
+                        <div class="heatmap-cell critical"><div class="dal-marker">D4</div></div>
+                        <div class="heatmap-cell critical"></div>
+                        <!-- Row 3 -->
+                        <div class="heatmap-cell medium"></div>
+                        <div class="heatmap-cell medium"></div>
+                        <div class="heatmap-cell high"><div class="dal-marker">D8</div></div>
+                        <div class="heatmap-cell high"><div class="dal-marker">D2</div></div>
+                        <div class="heatmap-cell high"></div>
+                        <!-- Row 2 -->
+                        <div class="heatmap-cell low"></div>
+                        <div class="heatmap-cell medium"><div class="dal-marker">D10</div></div>
+                        <div class="heatmap-cell medium"></div>
+                        <div class="heatmap-cell opportunity"><div class="dal-marker">D5</div></div>
+                        <div class="heatmap-cell high"></div>
+                        <!-- Row 1 (bottom - low criticality) -->
+                        <div class="heatmap-cell low"></div>
+                        <div class="heatmap-cell low"></div>
+                        <div class="heatmap-cell medium"></div>
+                        <div class="heatmap-cell opportunity"><div class="dal-marker">D6</div></div>
+                        <div class="heatmap-cell opportunity"></div>
+                    </div>
+                    <div class="heatmap-legend">
+                        <div class="legend-item"><div class="legend-color" style="background: var(--gray-300);"></div>Low Priority</div>
+                        <div class="legend-item"><div class="legend-color" style="background: var(--amber-accent);"></div>Monitor</div>
+                        <div class="legend-item"><div class="legend-color" style="background: var(--orange-accent);"></div>High Value</div>
+                        <div class="legend-item"><div class="legend-color" style="background: var(--red-accent);"></div>Critical Risk</div>
+                        <div class="legend-item"><div class="legend-color" style="background: var(--teal);"></div>Quick Win</div>
+                    </div>
+                </div>
+                <div style="margin-top: 24px; padding: 20px; background: var(--gray-50); border-radius: 12px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; font-size: 12px;">
+                    <div><strong>D1</strong> Credit Eligibility</div>
+                    <div><strong>D2</strong> Pricing Exception</div>
+                    <div><strong>D3</strong> Fraud Detection</div>
+                    <div><strong>D4</strong> Claims Triage</div>
+                    <div><strong>D5</strong> Lead Scoring</div>
+                    <div><strong>D6</strong> Email Routing</div>
+                    <div><strong>D7</strong> AML Alerts</div>
+                    <div><strong>D8</strong> Collections NBA</div>
+                    <div><strong>D9</strong> Complaint Triage</div>
+                    <div><strong>D10</strong> Scheduling</div>
+                </div>
+            </div>
+
+            <div class="submodules">
+                <div class="submodules-title">Sub-modules (7 steps)</div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M1.1</span><span class="submodule-title">Agentic Value Added Grid Construction</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p>Define the real value chain, then enrich each cell with <strong>5 agentic attributes</strong> rated 0–5:</p><ul><li><strong>Automatability (0–5):</strong> Potential for agent execution</li><li><strong>Decision Criticality (0–5):</strong> Impact if decision is wrong</li><li><strong>Data Moat (0–5):</strong> Quality, exclusivity, freshness</li><li><strong>Trust Moat (0–5):</strong> Auditability, compliance needs</li><li><strong>Disintermediation Risk (0–5):</strong> Exposure to bypass</li></ul></div></div>
+                </div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M1.2</span><span class="submodule-title">DBA Reconstruction & Linkage Identification</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p>Transform into <strong>Discrete Business Activities (DBAs)</strong>—the strategic segments (LEAD® heritage).</p><ul><li>Identify 8–20 DBAs depending on complexity</li><li>Map "linkages"—shared data, processes, decision logic</li><li>Document coordination points where DALs interact</li></ul></div></div>
+                </div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M1.3</span><span class="submodule-title">DAL Portfolio Definition</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p>Extract <strong>3–10 DALs per DBA</strong>, yielding 30–100 DALs total.</p><ul><li><strong>Naming:</strong> [DBA]_[Decision]_[Frequency]</li><li><strong>Document:</strong> Objective, inputs, owner, outputs, volume</li><li><strong>Flag:</strong> Cross-DBA DALs with coordination complexity</li></ul></div></div>
+                </div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M1.4–M1.7</span><span class="submodule-title">Exposure Scoring, Autonomy Pre-Assignment & Gate A</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p><strong>Exposure Heatmap:</strong> Score each DAL on value potential, risk exposure, feasibility, competitive parity horizon.</p><p><strong>Autonomy Pre-Assignment:</strong> Apply L0–L4 ladder based on criticality.</p><p><strong>"Do Not Automate Yet" List:</strong> 10 DALs to protect (high risk + low governance maturity).</p><p><strong>Gate A:</strong> ExCo 90-min session to validate battlefield and set ambition.</p></div></div>
+                </div>
+            </div>
+
+            <div class="outputs-section">
+                <div class="outputs-title">Module 1 Deliverables</div>
+                <div class="outputs-grid">
+                    <div class="output-card"><div class="output-icon">🗺️</div><div class="output-info"><h5>Agentic Battlefield Map</h5><p>Enriched Value Added Grid with 5 attributes</p></div></div>
+                    <div class="output-card"><div class="output-icon">📋</div><div class="output-info"><h5>DAL Portfolio</h5><p>30–100 DAL cards with specifications</p></div></div>
+                    <div class="output-card"><div class="output-icon">🔥</div><div class="output-info"><h5>Exposure Heatmap (A1)</h5><p>Visual prioritization matrix</p></div></div>
+                    <div class="output-card"><div class="output-icon">🚫</div><div class="output-info"><h5>Do Not Automate List</h5><p>10 explicit exclusions with rationale</p></div></div>
+                </div>
+            </div>
+
+            <div class="gate-box">
+                <div class="gate-box-header"><div class="gate-box-icon"><span>A</span></div><div><div class="gate-box-title">Decision Gate A</div><div class="gate-box-subtitle">End of Module 1 — ExCo validation</div></div></div>
+                <div class="gate-decisions">
+                    <div class="gate-decision">Battlefield boundaries validated</div>
+                    <div class="gate-decision">Top 10–15 DAL priorities confirmed</div>
+                    <div class="gate-decision">"Do not automate" red lines approved</div>
+                    <div class="gate-decision">Ambition level set: aggressive / measured / prudent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 2 -->
+    <section class="module-section section-gray" id="m2">
+        <div class="container">
+            <div class="module-header">
+                <div class="module-badge-large"><span class="module-label">Module</span><span class="module-number">2</span></div>
+                <div class="module-header-content">
+                    <h2>Endgame Scenarios & Strategic Moves</h2>
+                    <div class="module-purpose"><strong>CEO Decision Unlocked:</strong> What strategic posture to adopt facing 3–4 plausible agentic futures? Where to invest "no matter what" vs. where to keep options open?</div>
+                </div>
+            </div>
+
+            <!-- SCENARIO VISUAL -->
+            <div class="scenario-visual">
+                <div class="scenario-card parity">
+                    <div class="scenario-letter">A</div>
+                    <div class="scenario-name">Agentic Parity</div>
+                    <div class="scenario-desc">Everyone has effective agents. Differentiation shifts to data, trust, orchestration. <strong>Speed becomes table stakes.</strong></div>
+                </div>
+                <div class="scenario-card trust">
+                    <div class="scenario-letter">B</div>
+                    <div class="scenario-name">Winner-Takes-Trust</div>
+                    <div class="scenario-desc">Trust/compliance capability creates barrier to entry. <strong>Certified players dominate.</strong> Governance is differentiator.</div>
+                </div>
+                <div class="scenario-card platform">
+                    <div class="scenario-letter">C</div>
+                    <div class="scenario-name">Platform Capture</div>
+                    <div class="scenario-desc">Platforms impose interfaces and agents. <strong>Incumbents become suppliers</strong> to ecosystems they don't control.</div>
+                </div>
+                <div class="scenario-card stress">
+                    <div class="scenario-letter">⚠</div>
+                    <div class="scenario-name">Stress Test</div>
+                    <div class="scenario-desc">Major incident triggers regulatory backlash. <strong>Autonomy rollback.</strong> Those with governance survive.</div>
+                </div>
+            </div>
+
+            <div class="submodules">
+                <div class="submodules-title">Sub-modules (6 steps)</div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M2.1–M2.3</span><span class="submodule-title">Trend Capture, Filtering & Causal Map</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p>Systematic scan across Technology, Market, Workforce, Regulation. Filter ~100 trends to ~20 material ones. Build causal map with 5–7 strategic themes.</p></div></div>
+                </div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M2.4–M2.5</span><span class="submodule-title">Endgame Scenarios & Retropolation</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p><strong>3 Scenarios + 1 Stress Test</strong> with decidable implications.</p><p><strong>No-regret moves (12–18m):</strong> Data foundation, decision architecture, talent, 2–3 lighthouses.</p><p><strong>Option moves (24–48m):</strong> Conditional bets with triggers and kill criteria.</p></div></div>
+                </div>
+            </div>
+
+            <div class="outputs-section">
+                <div class="outputs-title">Module 2 Deliverables</div>
+                <div class="outputs-grid">
+                    <div class="output-card"><div class="output-icon">🔮</div><div class="output-info"><h5>Scenario Cone</h5><p>3 endgames + 1 stress test</p></div></div>
+                    <div class="output-card"><div class="output-icon">✅</div><div class="output-info"><h5>No-Regret Package</h5><p>5–7 foundation moves</p></div></div>
+                    <div class="output-card"><div class="output-icon">🎯</div><div class="output-info"><h5>Option Portfolio</h5><p>Conditional bets with triggers</p></div></div>
+                    <div class="output-card"><div class="output-icon">📡</div><div class="output-info"><h5>Trigger Dashboard</h5><p>Leading indicators</p></div></div>
+                </div>
+            </div>
+
+            <div class="gate-box">
+                <div class="gate-box-header"><div class="gate-box-icon"><span>B</span></div><div><div class="gate-box-title">Decision Gate B</div><div class="gate-box-subtitle">Strategic posture locked</div></div></div>
+                <div class="gate-decisions">
+                    <div class="gate-decision">Base case scenario selected</div>
+                    <div class="gate-decision">No-regret package approved</div>
+                    <div class="gate-decision">Option portfolio validated</div>
+                    <div class="gate-decision">Trigger monitoring established</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 3 -->
+    <section class="module-section section-light" id="m3">
+        <div class="container">
+            <div class="module-header">
+                <div class="module-badge-large"><span class="module-label">Module</span><span class="module-number">3</span></div>
+                <div class="module-header-content">
+                    <h2>Advantage System & Target Agentic Operating Model</h2>
+                    <div class="module-purpose"><strong>CEO Decision Unlocked:</strong> How do we win (which moats to build) and how do we run (target AOM) in a hybrid enterprise?</div>
+                </div>
+            </div>
+
+            <!-- AOM VISUAL -->
+            <div class="aom-visual">
+                <div class="aom-title">🏛️ Target AOM Blueprint — 6 Bricks</div>
+                <div class="aom-bricks">
+                    <div class="aom-brick"><div class="aom-brick-num">1</div><div class="aom-brick-title">AI-First Workflows</div><div class="aom-brick-desc">Redesigned (not layered) processes by DAL. Agent-native, not agent-augmented.</div></div>
+                    <div class="aom-brick"><div class="aom-brick-num">2</div><div class="aom-brick-title">Decision Rights</div><div class="aom-brick-desc">Architecture of who decides what, when. Escalation paths and approval chains.</div></div>
+                    <div class="aom-brick"><div class="aom-brick-num">3</div><div class="aom-brick-title">Human/Agent Teaming</div><div class="aom-brick-desc">Team design principles. Supervision model. Exception handling protocols.</div></div>
+                    <div class="aom-brick"><div class="aom-brick-num">4</div><div class="aom-brick-title">Control & Evidence</div><div class="aom-brick-desc">Auditability by design. What to log, test, prove. Compliance-ready from day one.</div></div>
+                    <div class="aom-brick"><div class="aom-brick-num">5</div><div class="aom-brick-title">Data & Access</div><div class="aom-brick-desc">Rights, sovereignty, sharing policies. Who owns what data and who can use it.</div></div>
+                    <div class="aom-brick"><div class="aom-brick-num">6</div><div class="aom-brick-title">Ecosystem Posture</div><div class="aom-brick-desc">Orchestrator vs. participant vs. supplier. Platform strategy and API policies.</div></div>
+                </div>
+            </div>
+
+            <div class="submodules">
+                <div class="submodules-title">Sub-modules (8 steps)</div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M3.1</span><span class="submodule-title">Moat Selection (5–7 Defensible Advantages)</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p>Select <strong>maximum 5–7 moats</strong>:</p><ul><li><strong>Data rights & exclusivities</strong></li><li><strong>Workflow orchestration at scale</strong></li><li><strong>Trust & auditability</strong></li><li><strong>Distribution (being "default")</strong></li><li><strong>Operating leverage</strong></li></ul></div></div>
+                </div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M3.2–M3.8</span><span class="submodule-title">DAL Playbook, Bounded Autonomy, AOM Blueprint & Lighthouse</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p><strong>DAL Playbook:</strong> Standardized design for top 10–15 DALs.</p><p><strong>Bounded Autonomy:</strong> Conceptual control framework per DAL.</p><p><strong>Target AOM:</strong> 1-page CEO blueprint with 6 bricks.</p><p><strong>Work Chart (A5):</strong> Responsibility mapping H/A/S.</p><p><strong>Lighthouse Selection:</strong> 2 DALs for pilot using scorecard.</p><p><strong>Value Case v0:</strong> Pre-business case.</p></div></div>
+                </div>
+            </div>
+
+            <div class="outputs-section">
+                <div class="outputs-title">Module 3 Deliverables</div>
+                <div class="outputs-grid">
+                    <div class="output-card"><div class="output-icon">🏰</div><div class="output-info"><h5>Advantage System</h5><p>5–7 moats with trade-offs</p></div></div>
+                    <div class="output-card"><div class="output-icon">📐</div><div class="output-info"><h5>Target AOM Blueprint</h5><p>1-page CEO view + annexes</p></div></div>
+                    <div class="output-card"><div class="output-icon">📖</div><div class="output-info"><h5>DAL Playbook</h5><p>Templates for 10–15 DALs</p></div></div>
+                    <div class="output-card"><div class="output-icon">🚀</div><div class="output-info"><h5>Lighthouse Charter</h5><p>2 pilot DALs specified</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 4 -->
+    <section class="module-section section-gray" id="m4">
+        <div class="container">
+            <div class="module-header">
+                <div class="module-badge-large"><span class="module-label">Module</span><span class="module-number">4</span></div>
+                <div class="module-header-content">
+                    <h2>Organisation & Workforce Blueprint</h2>
+                    <div class="module-purpose"><strong>CEO Decision Unlocked:</strong> How to translate target AOM into organization structure, roles, skills, and HR policies for a hybrid workforce?</div>
+                </div>
+            </div>
+
+            <!-- WORK CHART VISUAL -->
+            <div class="workchart-visual">
+                <div style="font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                    📋 Work Chart Example — Credit Eligibility DAL <span style="background: var(--teal); color: white; padding: 4px 12px; border-radius: 6px; font-size: 12px;">Asset A5</span>
+                </div>
+                <table class="workchart-table">
+                    <thead><tr><th>Activity / Step</th><th>Human</th><th>Agent</th><th>System</th></tr></thead>
+                    <tbody>
+                        <tr><td>Data collection (income, debt, history)</td><td></td><td><span class="workchart-symbol performs">●</span></td><td><span class="workchart-symbol performs">●</span></td></tr>
+                        <tr><td>Credit score calculation</td><td></td><td><span class="workchart-symbol performs">●</span></td><td></td></tr>
+                        <tr><td>Risk assessment & recommendation</td><td></td><td><span class="workchart-symbol decides">◆</span></td><td></td></tr>
+                        <tr><td>Standard approval (≤€50K)</td><td></td><td><span class="workchart-symbol decides">◆</span></td><td></td></tr>
+                        <tr><td>Exception review (>€50K or flags)</td><td><span class="workchart-symbol decides">◆</span></td><td><span class="workchart-symbol performs">●</span></td><td></td></tr>
+                        <tr><td>Vulnerable customer escalation</td><td><span class="workchart-symbol decides">◆</span></td><td></td><td></td></tr>
+                        <tr><td>Decision audit & logging</td><td></td><td></td><td><span class="workchart-symbol performs">●</span></td></tr>
+                        <tr><td>Accountability & sign-off</td><td><span class="workchart-symbol accountable">★</span></td><td></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="submodules">
+                <div class="submodules-title">Sub-modules (10 steps — LEAD® Organisation)</div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M4.1–M4.4</span><span class="submodule-title">Work Decomposition, Interfaces & Organizational Blocks</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p>Decompose work into 4 categories: Decisional, Relational, Creative, Control.</p><p>Define 3 org blocks: Domain ownership, Control & assurance, Enablement.</p><p>Determine centralization vs. federation per DAL.</p></div></div>
+                </div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M4.5–M4.10</span><span class="submodule-title">Decision Chain, Sizing, Skills & HR Policies</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p><strong>Linking:</strong> Autonomy arbitration, exception review, policy change governance.</p><p><strong>Sizing:</strong> FTE business + FTE control + digital capacity + supervision ratios.</p><p><strong>Skills Taxonomy (3 Layers):</strong> Enterprise baseline, Management layer, Specialist layer.</p><p><strong>HR Policies:</strong> Accountability, performance management, mandatory training.</p></div></div>
+                </div>
+            </div>
+
+            <div class="outputs-section">
+                <div class="outputs-title">Module 4 Deliverables</div>
+                <div class="outputs-grid">
+                    <div class="output-card"><div class="output-icon">🏢</div><div class="output-info"><h5>Target Org Blueprint</h5><p>Macro + micro designs</p></div></div>
+                    <div class="output-card"><div class="output-icon">📋</div><div class="output-info"><h5>Work Charts (A5)</h5><p>Per priority DAL</p></div></div>
+                    <div class="output-card"><div class="output-icon">🎓</div><div class="output-info"><h5>Skills Taxonomy</h5><p>3-layer framework</p></div></div>
+                    <div class="output-card"><div class="output-icon">👥</div><div class="output-info"><h5>Workforce Plan</h5><p>Build/buy/partner strategy</p></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module 5 -->
+    <section class="module-section section-light" id="m5">
+        <div class="container">
+            <div class="module-header">
+                <div class="module-badge-large"><span class="module-label">Module</span><span class="module-number">5</span></div>
+                <div class="module-header-content">
+                    <h2>Governance, Risk & Transformation Trajectory</h2>
+                    <div class="module-purpose"><strong>CEO Decision Unlocked:</strong> What governance makes autonomy safe (and scalable)? What trajectory, at what pace, with what investment logic?</div>
+                </div>
+            </div>
+
+            <!-- DECISION CRITICALITY MATRIX -->
+            <div style="background: var(--white); border: 2px solid var(--gray-200); border-radius: var(--radius-xl); padding: 40px; margin: 48px 0;">
+                <div style="font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 32px; display: flex; align-items: center; gap: 12px;">
+                    ⚖️ Decision Criticality Matrix <span style="background: var(--gold); color: white; padding: 4px 12px; border-radius: 6px; font-size: 12px;">Asset A4</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 120px 1fr 1fr 1fr 1fr; gap: 4px;">
+                    <div style="padding: 16px; font-size: 12px; font-weight: 700; color: var(--gray-500);">Impact ↓ / Freq →</div>
+                    <div style="padding: 16px; background: var(--gray-100); text-align: center; font-weight: 700; border-radius: 8px 8px 0 0;">Low (Monthly)</div>
+                    <div style="padding: 16px; background: var(--gray-100); text-align: center; font-weight: 700; border-radius: 8px 8px 0 0;">Medium (Weekly)</div>
+                    <div style="padding: 16px; background: var(--gray-100); text-align: center; font-weight: 700; border-radius: 8px 8px 0 0;">High (Daily)</div>
+                    <div style="padding: 16px; background: var(--gray-100); text-align: center; font-weight: 700; border-radius: 8px 8px 0 0;">Very High (Hourly)</div>
+                    
+                    <div style="padding: 16px; background: var(--gray-100); font-weight: 700; font-size: 13px;">Critical</div>
+                    <div style="padding: 16px; background: var(--red-soft); text-align: center; font-size: 13px;"><strong>L0–L1</strong><br>Max Controls</div>
+                    <div style="padding: 16px; background: var(--red-soft); text-align: center; font-size: 13px;"><strong>L0–L1</strong><br>Max Controls</div>
+                    <div style="padding: 16px; background: rgba(220,38,38,0.15); text-align: center; font-size: 13px;"><strong>L1–L2</strong><br>High Controls</div>
+                    <div style="padding: 16px; background: rgba(220,38,38,0.15); text-align: center; font-size: 13px;"><strong>L1–L2</strong><br>High Controls</div>
+                    
+                    <div style="padding: 16px; background: var(--gray-100); font-weight: 700; font-size: 13px;">High</div>
+                    <div style="padding: 16px; background: var(--amber-soft); text-align: center; font-size: 13px;"><strong>L1–L2</strong><br>High Controls</div>
+                    <div style="padding: 16px; background: var(--amber-soft); text-align: center; font-size: 13px;"><strong>L2</strong><br>Medium Controls</div>
+                    <div style="padding: 16px; background: rgba(217,119,6,0.15); text-align: center; font-size: 13px;"><strong>L2–L3</strong><br>Medium Controls</div>
+                    <div style="padding: 16px; background: rgba(217,119,6,0.15); text-align: center; font-size: 13px;"><strong>L2–L3</strong><br>Medium Controls</div>
+                    
+                    <div style="padding: 16px; background: var(--gray-100); font-weight: 700; font-size: 13px;">Medium</div>
+                    <div style="padding: 16px; background: rgba(0,128,128,0.08); text-align: center; font-size: 13px;"><strong>L2–L3</strong><br>Standard</div>
+                    <div style="padding: 16px; background: rgba(0,128,128,0.12); text-align: center; font-size: 13px;"><strong>L3</strong><br>Standard</div>
+                    <div style="padding: 16px; background: rgba(0,128,128,0.15); text-align: center; font-size: 13px;"><strong>L3</strong><br>Standard</div>
+                    <div style="padding: 16px; background: rgba(0,128,128,0.2); text-align: center; font-size: 13px;"><strong>L3–L4</strong><br>Light</div>
+                    
+                    <div style="padding: 16px; background: var(--gray-100); font-weight: 700; font-size: 13px;">Low</div>
+                    <div style="padding: 16px; background: var(--green-soft); text-align: center; font-size: 13px;"><strong>L3</strong><br>Light</div>
+                    <div style="padding: 16px; background: var(--green-soft); text-align: center; font-size: 13px;"><strong>L3–L4</strong><br>Light</div>
+                    <div style="padding: 16px; background: rgba(5,150,105,0.15); text-align: center; font-size: 13px;"><strong>L4</strong><br>Minimal</div>
+                    <div style="padding: 16px; background: rgba(5,150,105,0.2); text-align: center; font-size: 13px;"><strong>L4</strong><br>Minimal</div>
+                </div>
+            </div>
+
+            <div class="submodules">
+                <div class="submodules-title">Sub-modules (9 steps)</div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M5.1–M5.5</span><span class="submodule-title">Governance Blueprint, Agent Registry, Risk Tiering & Evidence</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p><strong>Governance Blueprint (A6):</strong> Board-ready framework.</p><p><strong>Agent Registry:</strong> Inventory, ownership, versioning, permissions.</p><p><strong>Risk Tiering (A4):</strong> Decision Criticality Matrix.</p><p><strong>Evidence Pack:</strong> What to log, test, audit.</p><p><strong>Incident Playbook:</strong> Triggers → Procedure → Communication.</p></div></div>
+                </div>
+                <div class="submodule" onclick="toggleSubmodule(this)">
+                    <div class="submodule-header"><span class="submodule-code">M5.6–M5.9</span><span class="submodule-title">Base Camps, KPIs, SmartPMO® & Investment Logic</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body"><p><strong>Base Camps Roadmap (A7):</strong> BC0 Foundations → BC1 Lighthouses → BC2 Scale → BC3 Reinvention.</p><p><strong>Agentic KPIs:</strong> % decisions by level, exception rate, quality, compliance.</p><p><strong>SmartPMO® (A8):</strong> Challenge, Synthesis, Coordination, Classical.</p><p><strong>Investment Logic:</strong> Envelope by camp, OPEX model, stop/go rules.</p></div></div>
+                </div>
+            </div>
+
+            <div class="outputs-section">
+                <div class="outputs-title">Module 5 Deliverables</div>
+                <div class="outputs-grid">
+                    <div class="output-card"><div class="output-icon">🏛️</div><div class="output-info"><h5>Governance Blueprint (A6)</h5><p>Board-ready framework</p></div></div>
+                    <div class="output-card"><div class="output-icon">⚠️</div><div class="output-info"><h5>Risk & Evidence Packs</h5><p>Tiering + incident playbooks</p></div></div>
+                    <div class="output-card"><div class="output-icon">🗓️</div><div class="output-info"><h5>Base Camps Roadmap (A7)</h5><p>36-month trajectory</p></div></div>
+                    <div class="output-card"><div class="output-icon">📈</div><div class="output-info"><h5>KPI Dashboard</h5><p>CEO + operational metrics</p></div></div>
+                </div>
+            </div>
+
+            <div class="gate-box">
+                <div class="gate-box-header"><div class="gate-box-icon"><span>C</span></div><div><div class="gate-box-title">Decision Gate C</div><div class="gate-box-subtitle">End of Lot 2 — Scale decision</div></div></div>
+                <div class="gate-decisions">
+                    <div class="gate-decision">AOM validated, governance approved by Board</div>
+                    <div class="gate-decision">Lighthouse results meet KPI thresholds</div>
+                    <div class="gate-decision">Scale authorization: proceed BC2 or iterate BC1</div>
+                    <div class="gate-decision">Investment envelope for next 12 months approved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assets -->
+    <section class="assets-section section-gray" id="assets">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Toolbox</span>
+                <h2 class="section-title">DAWN® Asset Library</h2>
+                <p class="section-subtitle">8 standardized tools and templates that make the methodology operational</p>
+            </div>
+            <div class="assets-grid">
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A1</span><span class="asset-name">Agentic Exposure Heatmap</span></div><div class="asset-purpose">Prioritize DALs by value potential, criticality, data moat, trust moat, competitive parity.</div><div class="asset-details"><strong>Axes:</strong> Value × Criticality. <strong>Bubble:</strong> Feasibility. <strong>Output:</strong> Top 10–15 DALs + 10 exclusions.</div></div>
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A2</span><span class="asset-name">DAL Card Template</span></div><div class="asset-purpose">Standardize design specification for each Decision-Action Loop.</div><div class="asset-details"><strong>Fields:</strong> Owner, KPIs, DIDA+ chain, autonomy target L0–L4, bounds, escalations, evidence.</div></div>
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A3</span><span class="asset-name">Autonomy Ladder L0–L4</span></div><div class="asset-purpose">Explicit tier definitions and progression conditions.</div><div class="asset-details"><strong>Per DAL:</strong> Current L + target at 12/24/36 months + advancement conditions.</div></div>
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A4</span><span class="asset-name">Decision Criticality Matrix</span></div><div class="asset-purpose">Determine autonomy ceiling and minimum control requirements.</div><div class="asset-details"><strong>Axes:</strong> Impact × Frequency. <strong>Output:</strong> Control tier and max autonomy per DAL.</div></div>
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A5</span><span class="asset-name">Work Chart Template</span></div><div class="asset-purpose">Make work visible across Humans, Agents, Systems.</div><div class="asset-details"><strong>Per DAL:</strong> Who performs / decides / controls / is accountable.</div></div>
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A6</span><span class="asset-name">Governance Blueprint</span></div><div class="asset-purpose">Enable autonomy at scale through designed-in controls.</div><div class="asset-details"><strong>Components:</strong> Gov board, standards, review cadence, incident protocol.</div></div>
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A7</span><span class="asset-name">Base Camps Roadmap</span></div><div class="asset-purpose">Structured 36-month progression with explicit gates.</div><div class="asset-details"><strong>Content:</strong> 4 camps, deliverables, stop/go criteria, investment envelopes.</div></div>
+                <div class="asset-card"><div class="asset-header"><span class="asset-code">A8</span><span class="asset-name">SmartPMO® Charter</span></div><div class="asset-purpose">Maintain transformation momentum over 36 months.</div><div class="asset-details"><strong>4 Roles:</strong> Challenge, Synthesis, Coordination, Classical.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Base Camps -->
+    <section class="basecamps-section section-light" id="trajectory">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Transformation Trajectory</span>
+                <h2 class="section-title">DAWN® Base Camps</h2>
+                <p class="section-subtitle">Progressive deployment over 36 months with explicit decision gates</p>
+            </div>
+            <div class="basecamps-timeline">
+                <div class="basecamp">
+                    <div class="basecamp-header"><span class="basecamp-badge">Base Camp 0</span><span class="basecamp-duration">0–12 weeks</span></div>
+                    <h4>Foundations</h4>
+                    <div class="basecamp-outputs"><span class="basecamp-output">M1–M3 complete</span><span class="basecamp-output">Governance blueprint</span><span class="basecamp-output">2 lighthouses selected</span><span class="basecamp-output">KPIs v0</span></div>
+                </div>
+                <div class="basecamp">
+                    <div class="basecamp-header"><span class="basecamp-badge">Base Camp 1</span><span class="basecamp-duration">3–6 months</span></div>
+                    <h4>Lighthouses</h4>
+                    <div class="basecamp-outputs"><span class="basecamp-output">2 DALs live</span><span class="basecamp-output">Measured & tested</span><span class="basecamp-output">Playbook standardized</span><span class="basecamp-output">Value proven</span></div>
+                </div>
+                <div class="basecamp">
+                    <div class="basecamp-header"><span class="basecamp-badge">Base Camp 2</span><span class="basecamp-duration">6–18 months</span></div>
+                    <h4>Scale</h4>
+                    <div class="basecamp-outputs"><span class="basecamp-output">10–20 DALs deployed</span><span class="basecamp-output">Supervision org stable</span><span class="basecamp-output">Training industrialized</span><span class="basecamp-output">Governance operational</span></div>
+                </div>
+                <div class="basecamp">
+                    <div class="basecamp-header"><span class="basecamp-badge">Base Camp 3</span><span class="basecamp-duration">18–36 months</span></div>
+                    <h4>Reinvention</h4>
+                    <div class="basecamp-outputs"><span class="basecamp-output">Business model options</span><span class="basecamp-output">New agentic services</span><span class="basecamp-output">Ecosystem plays</span><span class="basecamp-output">Competitive advantage</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial -->
+    <section class="commercial-section section-gray" id="offers">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Commercial Deployment</span>
+                <h2 class="section-title">DAWN® Offer Portfolio</h2>
+                <p class="section-subtitle">Four engagement formats to match client needs</p>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-header"><div class="offer-number">Offer 1</div><div class="offer-name">DAWN Executive Scan</div><div class="offer-duration">⏱ 2–3 weeks</div></div>
+                    <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">M1 lite + first scenario framing</div><div class="offer-scope-item">CEO-ready story on agentic exposure</div><div class="offer-scope-item">Priority stack (top 10 DALs)</div><div class="offer-scope-item">Go/no-go recommendation</div></div></div>
+                </div>
+                <div class="offer-card featured">
+                    <div class="offer-header"><div class="offer-number">Offer 2</div><div class="offer-name">DAWN Board Readiness</div><div class="offer-duration">⏱ 4–6 weeks</div></div>
+                    <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">M1–M2 full depth</div><div class="offer-scope-item">Initial AOM choices prepared</div><div class="offer-scope-item">Board-decidable recommendations</div><div class="offer-scope-item">Decision gates A & B completed</div><div class="offer-scope-item">Investment case v0</div></div></div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-header"><div class="offer-number">Offer 3</div><div class="offer-name">DAWN Full Method</div><div class="offer-duration">⏱ 10–14 weeks</div></div>
+                    <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">M1–M5 complete</div><div class="offer-scope-item">AOM + Org/Workforce blueprint</div><div class="offer-scope-item">Full governance framework</div><div class="offer-scope-item">36-month base camps roadmap</div><div class="offer-scope-item">All 3 decision gates completed</div></div></div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-header"><div class="offer-number">Offer 4</div><div class="offer-name">DAWN SmartPMO® Advisory</div><div class="offer-duration">⏱ 3–9 months</div></div>
+                    <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">Steering & challenge function</div><div class="offer-scope-item">Synthesis & communication</div><div class="offer-scope-item">Coordination of dependencies</div><div class="offer-scope-item">No tool build / implementation</div></div></div>
+                </div>
+            </div>
+            <div class="positioning-note"><p><strong>CVA Positioning:</strong> DAWN® is a strategy and operating model methodology. CVA does not implement tools, build agents, or provide technical architecture. We prepare the CEO and Board to make the right choices; implementation partners execute.</p></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">CVA DAWN®</div>
+                    <div class="footer-tagline">Designing Agentic Work Networks</div>
+                    <div class="footer-heritage">Built on LEAD® + CORE® heritage — proven CVA methodologies since 1989</div>
+                </div>
+                <div class="footer-note">Preparing the CEO and ExCo for the Agentic Age (2026–2030)<br><span style="opacity: 0.7;">Confidential — CVA Internal Methodology Documentation</span></div>
+            </div>
+            <div class="footer-bottom">© 2026 Corporate Value Associates. All methodology assets are proprietary.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', function() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Nav scroll
+        var mainNavElement = document.getElementById('mainNav');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                mainNavElement.classList.add('scrolled');
+            } else {
+                mainNavElement.classList.remove('scrolled');
+            }
+        });
+
+        // Concept tabs
+        function showConceptPanel(panelId) {
+            document.querySelectorAll('.concept-panel').forEach(function(p) { p.classList.remove('active'); });
+            document.querySelectorAll('.concept-tab').forEach(function(t) { t.classList.remove('active'); });
+            document.getElementById('panel-' + panelId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Submodule accordion
+        function toggleSubmodule(element) {
+            var parent = element.parentElement;
+            var siblings = parent.querySelectorAll('.submodule.active');
+            siblings.forEach(function(sib) { if (sib !== element) sib.classList.remove('active'); });
+            element.classList.toggle('active');
+        }
+
+        // Scroll to module
+        function scrollToModule(moduleId) {
+            var el = document.getElementById(moduleId);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Animate on scroll
+        var observerOptions = { threshold: 0.1, rootMargin: '0px 0px -60px 0px' };
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.concept-card, .consequence-card, .output-card, .asset-card, .offer-card, .basecamp, .question-item, .role-card, .scenario-card, .value-driver').forEach(function(el) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            observer.observe(el);
+        });
+
+        // Stagger animation
+        document.querySelectorAll('.concepts-grid, .outputs-grid, .assets-grid, .questions-grid, .role-evolution, .scenario-visual').forEach(function(grid) {
+            var items = grid.children;
+            Array.from(items).forEach(function(item, index) {
+                item.style.transitionDelay = (index * 0.1) + 's';
+            });
+        });
+    </script>
+</body>
+</html>
