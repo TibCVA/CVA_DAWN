@@ -674,7 +674,7 @@
             color: var(--gray-500);
         }
         .matrix-axis-x { bottom: 8px; left: 50%; transform: translateX(-50%); }
-        .matrix-axis-y { left: 8px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+        .matrix-axis-y { left: -50px; top: 50%; transform: translateY(-50%) rotate(-90deg); white-space: nowrap; }
 
         /* CEO Questions */
         .ceo-questions { padding: 160px 0; }
@@ -706,6 +706,7 @@
         .is-isnot-list { display: flex; flex-direction: column; gap: 20px; }
         .is-isnot-item { display: flex; gap: 16px; font-size: 16px; line-height: 1.6; }
         .is-card .is-isnot-item { color: rgba(255,255,255,0.9); }
+        .is-card .is-isnot-item strong { color: var(--teal-light); }
         .isnot-card .is-isnot-item { color: var(--gray-600); }
         .is-isnot-check { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-top: 1px; }
         .is-card .is-isnot-check { background: var(--teal); color: white; }
@@ -1238,7 +1239,7 @@
 
     <nav class="main-nav" id="mainNav">
         <div class="container nav-content">
-            <a href="#top" class="logo"><span class="logo-main">CVA</span><span class="logo-dawn">DAWN®</span></a>
+            <a href="#top" class="logo"><span class="logo-main">CVA</span><span class="logo-dawn">DAWN<sup style="font-size: 10px; vertical-align: super;">®</sup></span></a>
             <div class="nav-links">
                 <a href="#part1" class="nav-link">Agentic AI</a>
                 <a href="#diamond" class="nav-link">Organisation</a>
@@ -1277,28 +1278,36 @@
                     <a href="#architecture" class="btn btn-ghost btn-lg">View Architecture</a>
                 </div>
             </div>
-            <div class="hero-card">
+            <div class="hero-card" style="max-width: 580px;">
                 <div class="hero-card-header">
-                    <div class="hero-card-icon">◆</div>
-                    <div><div class="hero-card-title">Preparing for 2026–2030</div><div class="hero-card-subtitle">The Agentic Age requires a new playbook</div></div>
+                    <div class="hero-card-icon">?</div>
+                    <div><div class="hero-card-title">The Questions DAWN<sup style="font-size: 9px;">®</sup> Answers</div><div class="hero-card-subtitle">CEO-grade questions that require ExCo ownership</div></div>
                 </div>
-                <div class="hero-card-body">
-                    <div class="hero-card-section">
-                        <div class="hero-card-section-title">The Challenge Today</div>
-                        <div class="hero-card-list">
-                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>Most enterprises have AI pilots — few have redesigned decision rights to run agents at scale</span></div>
-                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>Governance is bolted-on rather than designed-in — blocking safe autonomy expansion</span></div>
-                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>Workflows are agent-augmented, not agent-native — limiting value capture</span></div>
-                            <div class="hero-card-item warning"><div class="hero-card-item-icon">!</div><span>No clear trajectory from pilot to scale — transformation stalls at Base Camp 1</span></div>
+                <div class="hero-card-body" style="padding: 24px 28px;">
+                    <div style="display: flex; flex-direction: column; gap: 14px;">
+                        <div style="display: flex; gap: 14px; align-items: flex-start;">
+                            <span style="flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white;">1</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5;">Where will value shift when agents commoditize execution across the industry?</span>
                         </div>
-                    </div>
-                    <div class="hero-card-section">
-                        <div class="hero-card-section-title">DAWN® Approach</div>
-                        <div class="hero-card-list">
-                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Future-back strategy with scenario-to-DAL implication matrix</span></div>
-                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Decision-Action Loops (DALs) as the unit of design</span></div>
-                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Bounded autonomy with designed-in governance</span></div>
-                            <div class="hero-card-item"><div class="hero-card-item-icon">✓</div><span>Base camps trajectory with Scale Gate S</span></div>
+                        <div style="display: flex; gap: 14px; align-items: flex-start;">
+                            <span style="flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white;">2</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5;">Which capabilities remain differentiating—and which become table stakes?</span>
+                        </div>
+                        <div style="display: flex; gap: 14px; align-items: flex-start;">
+                            <span style="flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white;">3</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5;">What is our target operating model (Humans + Agents + Systems)?</span>
+                        </div>
+                        <div style="display: flex; gap: 14px; align-items: flex-start;">
+                            <span style="flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white;">4</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5;">How do we reskill and redesign without breaking continuity or trust?</span>
+                        </div>
+                        <div style="display: flex; gap: 14px; align-items: flex-start;">
+                            <span style="flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white;">5</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5;">What governance makes autonomy safe—and scalable—for regulators?</span>
+                        </div>
+                        <div style="display: flex; gap: 14px; align-items: flex-start;">
+                            <span style="flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, var(--teal), var(--teal-dark)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white;">6</span>
+                            <span style="font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.5;">What trajectory (base camps), at what pace, with what investment logic?</span>
                         </div>
                     </div>
                 </div>
@@ -1715,7 +1724,7 @@
 
             <!-- Net Economic Impact -->
             <div style="margin-top: 80px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); border-radius: var(--radius-xl); padding: 56px; color: white;">
-                <h3 style="text-align: center; font-size: 28px; margin-bottom: 48px;">Net Economic Impact Model</h3>
+                <h3 style="text-align: center; font-size: 28px; margin-bottom: 48px; color: white;">Net Economic Impact Model</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr 60px 1fr; gap: 24px; align-items: center;">
                     <div style="text-align: center; padding: 32px; background: rgba(255,255,255,0.05); border-radius: 16px;">
                         <div style="font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 8px;">Labor Savings</div>
@@ -1739,27 +1748,6 @@
                     Value compounds non-linearly after BC2 as governance costs amortize across more DALs. 
                     Patience and sequencing discipline are essential.
                 </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CEO Questions -->
-    <section class="ceo-questions section-light" id="concepts">
-        <div class="container">
-            <div class="questions-wrapper">
-                <div class="questions-header">
-                    <span class="tag tag-light">CEO Agenda</span>
-                    <h2>The Questions DAWN® Answers</h2>
-                    <p>CEO-grade questions that cannot be delegated to "AI teams" — these require ExCo ownership</p>
-                </div>
-                <div class="questions-grid">
-                    <div class="question-item"><div class="question-num">1</div><div class="question-text">Where will value shift in our value chain when agents commoditize execution across the industry?</div></div>
-                    <div class="question-item"><div class="question-num">2</div><div class="question-text">Which capabilities remain differentiating when competitors also go agentic—and which become table stakes?</div></div>
-                    <div class="question-item"><div class="question-num">3</div><div class="question-text">What is our target operating model (Humans + Agents + Systems) and decision architecture?</div></div>
-                    <div class="question-item"><div class="question-num">4</div><div class="question-text">How do we reskill, recruit, and redesign the organization without breaking operational continuity or trust?</div></div>
-                    <div class="question-item"><div class="question-num">5</div><div class="question-text">What governance framework makes autonomy safe—and therefore scalable—while satisfying regulators?</div></div>
-                    <div class="question-item"><div class="question-num">6</div><div class="question-text">What transformation trajectory (base camps), at what pace, with what investment logic should we execute?</div></div>
-                </div>
             </div>
         </div>
     </section>
@@ -1935,7 +1923,7 @@
                     <div class="concept-visual">
                         <div class="concept-visual-title">DAL Card Template (Asset A2)</div>
                         <div style="display: flex; flex-direction: column; gap: 10px;">
-                            <div style="padding: 14px 18px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); color: white; border-radius: 10px; font-size: 14px;"><strong>Owner</strong> (Business) + <strong>Accountable</strong> (ExCo)</div>
+                            <div style="padding: 14px 18px; background: linear-gradient(135deg, var(--navy-deep), var(--navy)); color: white; border-radius: 10px; font-size: 14px;"><strong style="color: var(--teal-light);">Owner</strong> (Business) + <strong style="color: var(--teal-light);">Accountable</strong> (ExCo)</div>
                             <div style="padding: 14px 18px; background: var(--gray-100); border-radius: 10px; font-size: 14px;"><strong>Business KPI</strong> + <strong>Risk KPI</strong></div>
                             <div style="padding: 14px 18px; background: rgba(0,128,128,0.1); border: 1px solid rgba(0,128,128,0.2); border-radius: 10px; font-size: 14px;"><strong>DIDA+ Chain</strong> — D→I→D→A + Guardrails + Learning</div>
                             <div style="padding: 14px 18px; background: var(--gray-100); border-radius: 10px; font-size: 14px;"><strong>Autonomy Target</strong> — L0→L4 at 12/24/36 months</div>
@@ -2670,19 +2658,19 @@
             </div>
             <div class="offers-grid">
                 <div class="offer-card">
-                    <div class="offer-header"><div class="offer-number">Offer 1</div><div class="offer-name">DAWN Executive Scan</div><div class="offer-duration">⏱ 2–3 weeks</div></div>
+                    <div class="offer-header"><div class="offer-number">Offer 1</div><div class="offer-name">DAWN Executive Scan</div><div class="offer-duration">⏱ 4–6 weeks</div></div>
                     <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">M1 lite + first scenario framing</div><div class="offer-scope-item">CEO-ready story on agentic exposure</div><div class="offer-scope-item">Priority stack (top 10 DALs)</div><div class="offer-scope-item">Go/no-go recommendation</div></div></div>
                 </div>
                 <div class="offer-card featured">
-                    <div class="offer-header"><div class="offer-number">Offer 2</div><div class="offer-name">DAWN Board Readiness</div><div class="offer-duration">⏱ 4–6 weeks</div></div>
+                    <div class="offer-header"><div class="offer-number">Offer 2</div><div class="offer-name">DAWN Board Readiness</div><div class="offer-duration">⏱ 8–12 weeks</div></div>
                     <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">M1–M2 full depth</div><div class="offer-scope-item">Initial AOM choices prepared</div><div class="offer-scope-item">Board-decidable recommendations</div><div class="offer-scope-item">Decision gates A & B completed</div><div class="offer-scope-item">Investment case v0</div></div></div>
                 </div>
                 <div class="offer-card">
-                    <div class="offer-header"><div class="offer-number">Offer 3</div><div class="offer-name">DAWN Full Method</div><div class="offer-duration">⏱ 10–14 weeks</div></div>
+                    <div class="offer-header"><div class="offer-number">Offer 3</div><div class="offer-name">DAWN Full Method</div><div class="offer-duration">⏱ 20–28 weeks</div></div>
                     <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">M1–M5 complete</div><div class="offer-scope-item">AOM + Org/Workforce blueprint</div><div class="offer-scope-item">Full governance framework</div><div class="offer-scope-item">36-month base camps roadmap</div><div class="offer-scope-item">All 3 decision gates completed</div></div></div>
                 </div>
                 <div class="offer-card">
-                    <div class="offer-header"><div class="offer-number">Offer 4</div><div class="offer-name">DAWN SmartPMO® Advisory</div><div class="offer-duration">⏱ 3–9 months</div></div>
+                    <div class="offer-header"><div class="offer-number">Offer 4</div><div class="offer-name">DAWN SmartPMO® Advisory</div><div class="offer-duration">⏱ 6–18 months</div></div>
                     <div class="offer-scope"><div class="offer-scope-title">Scope</div><div class="offer-scope-list"><div class="offer-scope-item">Steering & challenge function</div><div class="offer-scope-item">Synthesis & communication</div><div class="offer-scope-item">Coordination of dependencies</div><div class="offer-scope-item">No tool build / implementation</div></div></div>
                 </div>
             </div>
