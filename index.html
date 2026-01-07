@@ -1905,7 +1905,7 @@
                 <h4 style="text-align: center; font-size: 18px; color: var(--navy); margin-bottom: 32px;">End-to-End Logic — How Each Module Feeds the Next</h4>
                 <div style="display: grid; grid-template-columns: 1fr; gap: 14px;">
                     <div style="padding: 18px 22px; border: 1px solid var(--gray-200); border-radius: 14px; background: var(--gray-50); border-left: 4px solid var(--teal);">
-                        <strong style="color: var(--navy);">M1 outputs →</strong> <span style="color: var(--gray-700);">Battlefield Map + DBAs/Linkages + DAL Portfolio + Exposure Heatmap + "Do not automate" red lines</span>
+                        <strong style="color: var(--navy);">M1 outputs →</strong> <span style="color: var(--gray-700);">Battlefield Map + DBAs/Linkages + DAL Inventory + Exposure Heatmap + "Do not automate" red lines</span>
                         <div style="font-size: 13px; color: var(--gray-500); margin-top: 6px;">These become the <strong>impact surface</strong> for scenarios in M2.</div>
                     </div>
                     <div style="padding: 18px 22px; border: 1px solid var(--gray-200); border-radius: 14px; background: var(--gray-50); border-left: 4px solid var(--teal);">
@@ -2097,7 +2097,7 @@
                 <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 8px;">Reference Case Used Throughout Modules 1–5</h4>
                 <p style="margin: 0 0 20px; font-size: 16px; color: var(--gray-700); line-height: 1.6;">
                     <strong style="color: var(--navy);">UtilityCo</strong> (Europe) — integrated <strong>Energy & Utilities</strong> player (regulated grid + retail supply + energy services).
-                    Every module below is illustrated on the <strong>same</strong> DBA map and the <strong>same</strong> DAL portfolio.
+                    Every module below is illustrated on the <strong>same</strong> DBA map and the <strong>same</strong> DAL inventory.
                 </p>
 
                 <!-- Energy value chain strip -->
@@ -2254,67 +2254,91 @@
                 </div>
             </div>
 
+            <!-- MECE Logic Block -->
+            <div class="detail-box" style="margin: 0 0 32px 0;">
+                <div class="detail-box-title">MECE Logic for M1.1 → M1.2 → M1.3 (No Forcing)</div>
+                <div class="detail-grid">
+                    <div class="detail-item"><strong>M1.1 — Map</strong> a neutral <strong>Value Added Grid</strong> (activities & flows) to define the battlefield scope. Add any "agentic" scoring as a <strong>separate overlay</strong>, never as a segmentation driver.</div>
+                    <div class="detail-item"><strong>M1.2 — Segment</strong> the battlefield into <strong>DBAs</strong> by reconstructing the grid into businesses with distinct competitive sets and economics. Identify <strong>linkages</strong> (shared aspects with cost/price impact).</div>
+                    <div class="detail-item"><strong>M1.3 — Extract</strong> a <strong>DAL Inventory</strong> inside each DBA (Decision→Action→Feedback loops). <strong>No prioritization</strong> yet; prioritization happens in M1.4 via the Exposure Heatmap.</div>
+                    <div class="detail-item"><strong>Anti-forcing rule</strong> No ranking, autonomy target, or "preferred outcome" is allowed in M1.1–M1.3. Only a traceable inventory is produced.</div>
+                </div>
+            </div>
+
             <div class="submodules">
                 <div class="submodules-title">Sub-modules (7 steps)</div>
                 <div class="submodule" onclick="toggleSubmodule(this)">
-                    <div class="submodule-header"><span class="submodule-code">M1.1</span><span class="submodule-title">Agentic Value Added Grid Construction</span><span class="submodule-toggle">▼</span></div>
-                    <div class="submodule-content"><div class="submodule-body"><p>Define the real value chain, then enrich each cell with <strong>5 agentic attributes</strong> rated 0–5:</p><ul><li><strong>Automatability (0–5):</strong> Potential for agent execution</li><li><strong>Decision Criticality (0–5):</strong> Impact if decision is wrong</li><li><strong>Data Moat (0–5):</strong> Quality, exclusivity, freshness</li><li><strong>Trust Moat (0–5):</strong> Auditability, compliance needs</li><li><strong>Disintermediation Risk (0–5):</strong> Exposure to bypass</li></ul>
-                    <div style="margin-top: 20px; padding: 20px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px;">
-                        <h5 style="font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 12px;">📏 Scoring Rubric (0–5) — Keep it consistent across teams</h5>
-                        <ul style="font-size: 13px; margin: 0;">
-                            <li style="margin-bottom: 8px;"><strong>Automatability:</strong> 0 = mostly bespoke/ambiguous; 3 = semi-structured with patterns; 5 = highly structured & repeatable</li>
-                            <li style="margin-bottom: 8px;"><strong>Decision criticality:</strong> 0 = reversible/low impact; 3 = moderate financial or customer impact; 5 = high-stakes/regulatory/irreversible</li>
-                            <li style="margin-bottom: 8px;"><strong>Data moat:</strong> 0 = commodity data; 3 = differentiated first-party data; 5 = unique, compounding data advantage</li>
-                            <li style="margin-bottom: 8px;"><strong>Trust moat:</strong> 0 = low trust requirement; 3 = moderate trust & explainability needed; 5 = high trust/safety/auditability required</li>
-                            <li><strong>Disintermediation risk:</strong> 0 = low risk; 3 = plausible platform encroachment; 5 = imminent risk of margin compression or loss of interface</li>
+                    <div class="submodule-header"><span class="submodule-code">M1.1</span><span class="submodule-title">Value Added Grid Construction (Battlefield Scope)</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body">
+                        <p>Build a <strong>neutral Value Added Grid (VAG)</strong> to define the scope of the strategic battlefield. This step is strictly <strong>descriptive</strong>: it maps what the company does end-to-end before any segmentation or prioritization.</p>
+                        <ul>
+                            <li><strong>Define axes:</strong> value chain steps (rows) × products / customer segments / channels (columns).</li>
+                            <li><strong>Populate value cells:</strong> each cell = one clear activity block with inputs/outputs.</li>
+                            <li><strong>MECE rule:</strong> every activity appears once at this level of granularity (no overlaps).</li>
+                            <li><strong>Only after the grid is stable:</strong> add an <strong>agentic overlay</strong> (data richness, decision frequency, reversibility, regulatory exposure) as annotations.</li>
+                            <li><strong>Explicit prohibition:</strong> agentic scores must <strong>not</strong> be used to define DBAs (that is M1.2).</li>
                         </ul>
-                    </div>
+                        <div class="detail-box">
+                            <div class="detail-box-title">Output</div>
+                            <p style="margin:0;"><strong>Value Added Grid v1</strong> (battlefield scope) + optional <strong>agentic overlay</strong> as a separate annotation layer.</p>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-box-title">Energy & Utilities Illustration</div>
+                            <div class="detail-grid">
+                                <div class="detail-item"><strong>Rows</strong> Connect & Meter / Operate Grid / Maintain Assets / Bill & Collect / Serve Customers / Flex & DER.</div>
+                                <div class="detail-item"><strong>Columns</strong> Residential / SME / Large I&C / Municipal & Critical sites.</div>
+                            </div>
+                        </div>
                     </div></div>
                 </div>
                 <div class="submodule" onclick="toggleSubmodule(this)">
-                    <div class="submodule-header"><span class="submodule-code">M1.2</span><span class="submodule-title">DBA (or Domain) Reconstruction & Linkage Identification</span><span class="submodule-toggle">▼</span></div>
-                    <div class="submodule-content"><div class="submodule-body"><p>Transform into <strong>Discrete Business Activities (DBAs)</strong> or <strong>Domains</strong> — the strategic containers (LEAD<sup style="font-size: 0.5em; vertical-align: super;">®</sup> heritage). If the company is multi-business, we reconstruct DBAs. If it is single-core, we use <em>Domains</em> (value streams, customer journeys, product lines, or enterprise functions).</p><ul><li>Identify 8–20 DBAs (or domains) depending on complexity</li><li>Map "linkages" — shared data, processes, decision logic that create a <em>real cost/price impact</em></li><li>Document coordination points where DALs interact across containers</li></ul>
-                    <div style="margin-top: 20px; padding: 20px; background: rgba(0,128,128,0.04); border: 1px solid rgba(0,128,128,0.15); border-radius: 12px;">
-                        <h5 style="font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 14px;">⚡ Energy Illustration — UtilityCo DBAs (example set)</h5>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;">
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> DSO Grid Operations</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> Connections</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> Retail Supply</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> Billing & O2C</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> Customer Service</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> Flexibility / DR</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> CEE Services</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DBA</strong> Renewables O&M</div>
+                    <div class="submodule-header"><span class="submodule-code">M1.2</span><span class="submodule-title">DBA Reconstruction & Linkage Identification (Strategic Segmentation)</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body">
+                        <p>Reconstruct the Value Added Grid into a <strong>strategic segmentation</strong>: a set of <strong>DBAs</strong> (Discrete Business Activities) that can each be managed as a business in its own right. Identify <strong>linkages</strong> (shared aspects with cost/price impact).</p>
+                        <ul>
+                            <li><strong>Cluster grid cells</strong> into DBAs using strategic homogeneity: customers, competitors, regulation, economics, and required capabilities.</li>
+                            <li><strong>Standalone test:</strong> each DBA must be viable as a "business in its own right" with its own battlefield and strategy.</li>
+                            <li><strong>MECE rule:</strong> every value cell has exactly <strong>one primary DBA owner</strong>.</li>
+                            <li><strong>Identify linkages</strong> only when sharing creates a <strong>material cost/price impact</strong> (not "nice-to-have" synergies).</li>
+                            <li><strong>Document boundaries:</strong> what is inside each DBA and what is explicitly out-of-scope.</li>
+                        </ul>
+                        <div class="detail-box">
+                            <div class="detail-box-title">Output</div>
+                            <p style="margin:0;"><strong>DBA Map</strong> (strategic segments) + <strong>Linkage Map</strong> (shared aspects with cost/price impact).</p>
                         </div>
-                        <p style="margin: 0; font-size: 13px; color: var(--gray-600);">DBAs remain the right unit for <strong>battlefield</strong> and <strong>competitive dynamics</strong> (regulated vs competitive, distinct economics and risks).</p>
-                    </div>
+                        <div class="detail-box">
+                            <div class="detail-box-title">Energy & Utilities Illustration</div>
+                            <div class="detail-grid">
+                                <div class="detail-item"><strong>DBA example</strong> Regulated Grid Operations vs Retail Supply & Customer Ops (different regulation, economics, competitors).</div>
+                                <div class="detail-item"><strong>Linkage example</strong> Meter + asset telemetry data rights shared across DBAs (material OPEX/quality impact).</div>
+                            </div>
+                        </div>
                     </div></div>
                 </div>
                 <div class="submodule" onclick="toggleSubmodule(this)">
-                    <div class="submodule-header"><span class="submodule-code">M1.3</span><span class="submodule-title">DAL Portfolio Definition (2-Tier)</span><span class="submodule-toggle">▼</span></div>
-                    <div class="submodule-content"><div class="submodule-body"><p>Extract 3–10 Decision-Action Loops per DBA (30–100 total), <strong>plus 10–20 Enterprise DALs</strong> that cut across DBAs (Finance, Risk, HR, Procurement). This prevents forcing "support" decisions into market DBAs while keeping a coherent portfolio logic.</p>
-                    <p>We build a <strong>two-tier portfolio</strong>: a broad <strong>DAL Inventory</strong> (30–100 loops) for coverage, then a <strong>Priority DAL Deep-Dive</strong> (top 10–15) using full DIDA+ one-pagers to enable AOM design and lighthouse selection.</p>
-                    <div style="margin: 20px 0; padding: 20px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px;">
-                        <h5 style="font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 12px;">🎯 What qualifies as a DAL?</h5>
-                        <ul style="font-size: 13px; margin: 0;">
-                            <li style="margin-bottom: 8px;"><strong>Recurring:</strong> daily/weekly/monthly cycle, not a one-off project decision</li>
-                            <li style="margin-bottom: 8px;"><strong>Actionable:</strong> triggers real actions across systems/teams</li>
-                            <li style="margin-bottom: 8px;"><strong>Measurable:</strong> clear KPIs and outcomes</li>
-                            <li><strong>Ownable:</strong> one accountable business owner</li>
+                    <div class="submodule-header"><span class="submodule-code">M1.3</span><span class="submodule-title">DAL Inventory Extraction (Decision–Action Loops per DBA)</span><span class="submodule-toggle">▼</span></div>
+                    <div class="submodule-content"><div class="submodule-body">
+                        <p>Build a <strong>DAL Inventory</strong> (Decision–Action Loops) inside each DBA. A DAL is not a process step; it is a <strong>repeatable decision system</strong> (Decision → Action → Feedback) that drives outcomes.</p>
+                        <ul>
+                            <li><strong>Start from the DBA boundary</strong> (from M1.2): list the key decisions that govern outcomes in that DBA.</li>
+                            <li><strong>Group into loops:</strong> each DAL must have a stable <strong>D→I→D→A</strong> chain + feedback.</li>
+                            <li><strong>Anchor rule:</strong> every DAL is anchored to <strong>one DBA owner</strong>; cross-DBA loops are tagged as <strong>Linkage DALs</strong>.</li>
+                            <li><strong>Define DAL card fields:</strong> purpose, inputs, decision, actions, exceptions, KPIs, owners.</li>
+                            <li><strong>No prioritization here:</strong> scoring and selection happen later (Exposure Heatmap / Criticality Matrix in M1.4).</li>
                         </ul>
-                    </div>
-                    <div style="margin: 20px 0; padding: 20px; background: rgba(0,128,128,0.04); border: 1px solid rgba(0,128,128,0.15); border-radius: 12px;">
-                        <h5 style="font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 14px;">⚡ Example DALs (Energy & Utilities — UtilityCo)</h5>
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">DSO Grid Ops</strong> Outage triage & restoration dispatch</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">Connections</strong> Connection feasibility & scheduling decision</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">Retail Supply</strong> Dynamic tariff / offer recommendation</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">Billing (O2C)</strong> Billing exception resolution & dispute routing</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">CEE Services</strong> Dossier eligibility decision + fraud escalation</div>
-                            <div style="padding: 10px; background: var(--white); border-radius: 8px; font-size: 13px;"><strong style="color: var(--navy);">Flexibility</strong> Demand response activation (within bounds)</div>
+                        <div class="detail-box">
+                            <div class="detail-box-title">Output</div>
+                            <p style="margin:0;"><strong>DAL Inventory</strong> (typically 30–100 candidate DALs) with DBA anchors + linkage flags, ready for M1.4 prioritization.</p>
                         </div>
-                    </div>
-                    <ul><li><strong>DAL Inventory (30–100):</strong> Mini-cards with [DBA/Domain]_[Decision]_[Frequency], objective, owner, volume</li><li><strong>Priority Deep-Dive (10–15):</strong> Full DIDA+ one-pagers with autonomy targets, guardrails, evidence requirements</li><li><strong>Flag:</strong> Cross-domain DALs with coordination complexity for linkage optimization</li></ul></div></div>
+                        <div class="detail-box">
+                            <div class="detail-box-title">Energy & Utilities Illustration</div>
+                            <div class="detail-grid">
+                                <div class="detail-item"><strong>Grid DBA</strong> Outage Restoration DAL (detect→localize→dispatch→notify→learn).</div>
+                                <div class="detail-item"><strong>Retail DBA</strong> Billing Dispute DAL (triage→investigate→decide→correct→learn).</div>
+                                <div class="detail-item"><strong>Linkage DAL</strong> Flex Dispatch DAL (grid constraints + market price → dispatch → verify → settle).</div>
+                            </div>
+                        </div>
+                    </div></div>
                 </div>
                 <div class="submodule" onclick="toggleSubmodule(this)">
                     <div class="submodule-header"><span class="submodule-code">M1.4–M1.7</span><span class="submodule-title">Heatmap, Prioritization, Autonomy Pre-Assignment & Gate A</span><span class="submodule-toggle">▼</span></div>
@@ -2346,7 +2370,7 @@
                 <div class="outputs-title">Module 1 Deliverables</div>
                 <div class="outputs-grid">
                     <div class="output-card"><div class="output-icon">🗺️</div><div class="output-info"><h5>Agentic Battlefield Map</h5><p>Enriched Value Added Grid with 5 agentic attributes</p></div></div>
-                    <div class="output-card"><div class="output-icon">📋</div><div class="output-info"><h5>DAL Portfolio (2-Tier)</h5><p>DAL Inventory (30–100 mini-cards) + Priority DAL Deep-Dive (top 10–15 DIDA+ one-pagers)</p></div></div>
+                    <div class="output-card"><div class="output-icon">📋</div><div class="output-info"><h5>DAL Inventory</h5><p>30–100 candidate DALs with DBA anchors + linkage flags, ready for M1.4 prioritization</p></div></div>
                     <div class="output-card"><div class="output-icon">🔥</div><div class="output-info"><h5>Exposure Heatmap (A1)</h5><p>Value × Criticality matrix with feasibility, parity, defensibility</p></div></div>
                     <div class="output-card"><div class="output-icon">🚫</div><div class="output-info"><h5>Do Not Automate List</h5><p>10 explicit exclusions with rationale</p></div></div>
                 </div>
@@ -2420,7 +2444,7 @@
                 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
                     <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 13px; color: var(--gray-700);">M1 Battlefield Map (Value Added Grid)</span>
                     <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 13px; color: var(--gray-700);">M1 DBA Segmentation + Linkages</span>
-                    <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 13px; color: var(--gray-700);">M1 DAL Portfolio (30–100 DAL cards)</span>
+                    <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 13px; color: var(--gray-700);">M1 DAL Inventory (30–100 DAL cards)</span>
                     <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 13px; color: var(--gray-700);">M1 Exposure Heatmap (A1)</span>
                     <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 13px; color: var(--gray-700);">Regulatory calendar (energy + AI)</span>
                     <span style="padding: 8px 14px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; font-size: 13px; color: var(--gray-700);">Competitor / platform moves</span>
@@ -2640,7 +2664,7 @@
             <div class="inputs-required">
                 <div class="inputs-required-title">Required Inputs</div>
                 <div class="inputs-required-list">
-                    <span class="inputs-required-item">M1 outputs: DBA segmentation + DAL portfolio (A2) + Exposure Heatmap (A1)</span>
+                    <span class="inputs-required-item">M1 outputs: DBA segmentation + DAL Inventory (A2) + Exposure Heatmap (A1)</span>
                     <span class="inputs-required-item">M2 outputs: scenario cards + no-regret package + option portfolio + AOM Design Brief</span>
                     <span class="inputs-required-item">Energy context: asset base, grid constraints, retail footprint, trading mandate</span>
                     <span class="inputs-required-item">Enterprise risk appetite (financial / safety / regulatory / reputation)</span>
