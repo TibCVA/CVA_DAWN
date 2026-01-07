@@ -350,7 +350,7 @@
                 <a href="#m4" class="nav-link">M4</a>
                 <a href="#m5" class="nav-link">M5</a>
                 <div class="nav-divider"></div>
-                <a href="index.html" class="nav-link nav-link-back">← Back to Methodology</a>
+                <a href="CVA-DAWN-Methodology-v6.html" class="nav-link nav-link-back">← Back to Methodology</a>
             </div>
         </div>
     </nav>
@@ -542,8 +542,8 @@
                         <div style="font-size: 12px; color: var(--gray-500);">10 DBAs with 5 linkages</div>
                     </div>
                     <div style="padding: 20px; background: var(--gray-50); border-radius: var(--radius-md); border-left: 4px solid var(--teal);">
-                        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">DAL Portfolio</div>
-                        <div style="font-size: 12px; color: var(--gray-500);">30–80 DALs + top 12–15 priority</div>
+                        <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">DAL Inventory</div>
+                        <div style="font-size: 12px; color: var(--gray-500);">30–80 DALs with DBA anchors</div>
                     </div>
                     <div style="padding: 20px; background: var(--gray-50); border-radius: var(--radius-md); border-left: 4px solid var(--teal);">
                         <div style="font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">Exposure Heatmap (A1)</div>
@@ -564,6 +564,17 @@
                 </div>
             </div>
 
+            <!-- MECE Logic Block -->
+            <div class="detail-box" style="margin: 0 0 32px 0;">
+                <div class="detail-box-title">MECE Logic for M1.1 → M1.2 → M1.3 (No Forcing)</div>
+                <div class="detail-grid">
+                    <div class="detail-item"><strong>M1.1 — Map</strong> a neutral <strong>Value Added Grid</strong> (activities & flows) to define the battlefield scope. Add any "agentic" scoring as a <strong>separate overlay</strong>, never as a segmentation driver.</div>
+                    <div class="detail-item"><strong>M1.2 — Segment</strong> the battlefield into <strong>DBAs</strong> by reconstructing the grid into businesses with distinct competitive sets and economics. Identify <strong>linkages</strong> (shared aspects with cost/price impact).</div>
+                    <div class="detail-item"><strong>M1.3 — Extract</strong> a <strong>DAL Inventory</strong> inside each DBA (Decision→Action→Feedback loops). <strong>No prioritization</strong> yet; prioritization happens in M1.4 via the Exposure Heatmap.</div>
+                    <div class="detail-item"><strong>Anti-forcing rule</strong> No ranking, autonomy target, or "preferred outcome" is allowed in M1.1–M1.3. Only a traceable inventory is produced.</div>
+                </div>
+            </div>
+
             <div class="submodules">
                 <div class="submodules-title">Sub-modules (7 steps)</div>
 
@@ -571,17 +582,18 @@
                 <div class="submodule" onclick="toggleSubmodule(this)">
                     <div class="submodule-header">
                         <span class="submodule-code">M1.1</span>
-                        <span class="submodule-title">Agentic Value Added Grid Construction</span>
+                        <span class="submodule-title">Value Added Grid Construction (Battlefield Scope)</span>
                         <span class="submodule-toggle">▼</span>
                     </div>
                     <div class="submodule-content">
                         <div class="submodule-body">
-                            <p>Build the <strong>real value chain</strong> (not the org chart), then score each cell using 5 agentic attributes so we can prioritize objectively.</p>
+                            <p>For UtilityCo, we first build a <strong>neutral Value Added Grid</strong> across customer segments and the end-to-end utility value chain. This is a scope map — not a segmentation and not a prioritization.</p>
                             <ul>
-                                <li><strong>Build a Value Added Grid:</strong> rows = value chain steps, columns = business "products/markets".</li>
-                                <li><strong>Score each cell 0–5</strong> on: Automatability, Decision Criticality, Data Moat, Trust Moat, Disintermediation Risk.</li>
-                                <li><strong>Produce commentary:</strong> 1–2 lines per cell explaining each score.</li>
-                                <li><strong>Identify "hot zones":</strong> top 10–15 cells by value × feasibility, with criticality overlay.</li>
+                                <li><strong>Columns:</strong> Residential / SME / Large I&C / Municipal & Critical sites (mapped to 3 business lines below).</li>
+                                <li><strong>Rows:</strong> Connect & Meter / Provide & Balance / Operate Grid / Maintain Assets / Bill & Collect / Serve Customers / Flex & DER.</li>
+                                <li><strong>Populate cells:</strong> list concrete activities and their outputs per segment.</li>
+                                <li><strong>Only after stability:</strong> annotate an agentic overlay (data richness, decision frequency, reversibility, regulatory exposure).</li>
+                                <li><strong>Rule:</strong> the overlay informs later prioritization, <strong>never</strong> DBA segmentation.</li>
                             </ul>
 
                             <!-- Value Added Grid Visual -->
@@ -638,99 +650,56 @@
                                     </table>
                                 </div>
                                 <div style="margin-top: 16px; font-size: 12px; color: var(--gray-500);">
-                                    <span style="display: inline-block; width: 12px; height: 12px; background: rgba(5,150,105,0.15); border-radius: 3px; margin-right: 4px;"></span> High value potential
-                                    <span style="display: inline-block; width: 12px; height: 12px; background: rgba(217,119,6,0.15); border-radius: 3px; margin-left: 16px; margin-right: 4px;"></span> Medium value potential
+                                    <span style="display: inline-block; width: 12px; height: 12px; background: rgba(5,150,105,0.15); border-radius: 3px; margin-right: 4px;"></span> High activity density
+                                    <span style="display: inline-block; width: 12px; height: 12px; background: rgba(217,119,6,0.15); border-radius: 3px; margin-left: 16px; margin-right: 4px;"></span> Medium activity density
                                 </div>
                             </div>
 
-                            <!-- Scoring Excerpt -->
-                            <div class="visual-container">
-                                <div class="visual-title">Scoring Excerpt — 8 Representative Cells (0–5)</div>
+                            <!-- Agentic Overlay (Separate Layer) -->
+                            <div class="visual-container" style="background: rgba(0,128,128,0.03); border-color: var(--teal);">
+                                <div class="visual-title">Agentic Overlay (Separate Layer — Does Not Define DBAs)</div>
                                 <div style="overflow-x: auto;">
                                     <table class="data-table">
                                         <thead>
                                             <tr>
                                                 <th>Cell (Row × Column)</th>
-                                                <th style="text-align: center;">Automatability</th>
-                                                <th style="text-align: center;">Criticality</th>
-                                                <th style="text-align: center;">Data Moat</th>
-                                                <th style="text-align: center;">Trust Moat</th>
-                                                <th style="text-align: center;">Disintermediation</th>
+                                                <th style="text-align: center;">Data Richness</th>
+                                                <th style="text-align: center;">Decision Frequency</th>
+                                                <th style="text-align: center;">Reversibility</th>
+                                                <th style="text-align: center;">Regulatory Exposure</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><strong>A2</strong> Operate grid in real-time</td>
-                                                <td style="text-align: center;"><span class="score score-3">3</span></td>
-                                                <td style="text-align: center;"><span class="score score-5">5</span></td>
+                                                <td><strong>Operate Grid × DSO</strong></td>
                                                 <td style="text-align: center;"><span class="score score-4">4</span></td>
                                                 <td style="text-align: center;"><span class="score score-5">5</span></td>
                                                 <td style="text-align: center;"><span class="score score-1">1</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>A3</strong> Predictive maintenance prioritization</td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-1">1</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>B4</strong> Billing anomaly detection & correction</td>
-                                                <td style="text-align: center;"><span class="score score-5">5</span></td>
-                                                <td style="text-align: center;"><span class="score score-2">2</span></td>
-                                                <td style="text-align: center;"><span class="score score-3">3</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>B4</strong> Collections "next best action"</td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-3">3</span></td>
-                                                <td style="text-align: center;"><span class="score score-5">5</span></td>
-                                                <td style="text-align: center;"><span class="score score-2">2</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>B5</strong> Customer issue triage & routing</td>
-                                                <td style="text-align: center;"><span class="score score-5">5</span></td>
-                                                <td style="text-align: center;"><span class="score score-2">2</span></td>
-                                                <td style="text-align: center;"><span class="score score-3">3</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
                                                 <td style="text-align: center;"><span class="score score-5">5</span></td>
                                             </tr>
                                             <tr>
-                                                <td><strong>C6</strong> DER interconnection screening</td>
+                                                <td><strong>Bill & Collect × Retail</strong></td>
                                                 <td style="text-align: center;"><span class="score score-4">4</span></td>
                                                 <td style="text-align: center;"><span class="score score-4">4</span></td>
                                                 <td style="text-align: center;"><span class="score score-3">3</span></td>
                                                 <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-3">3</span></td>
                                             </tr>
                                             <tr>
-                                                <td><strong>C6</strong> Flexibility dispatch (aggregator)</td>
+                                                <td><strong>Flex Dispatch × Energy Services</strong></td>
                                                 <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-5">5</span></td>
-                                                <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-5">5</span></td>
-                                                <td style="text-align: center;"><span class="score score-3">3</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>C6</strong> EE offer personalization</td>
                                                 <td style="text-align: center;"><span class="score score-5">5</span></td>
                                                 <td style="text-align: center;"><span class="score score-2">2</span></td>
                                                 <td style="text-align: center;"><span class="score score-4">4</span></td>
-                                                <td style="text-align: center;"><span class="score score-3">3</span></td>
-                                                <td style="text-align: center;"><span class="score score-5">5</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
+                                <p style="margin-top: 12px; font-size: 12px; color: var(--gray-500); font-style: italic;">This overlay informs M1.4 prioritization. It does <strong>not</strong> determine DBA boundaries (M1.2).</p>
                             </div>
 
                             <div class="detail-box">
-                                <div class="detail-box-title">Output</div>
-                                <p><strong>UtilityCo Enriched Value Added Grid (full):</strong> all cells scored 0–5 on 5 attributes + commentary layer + first "hot zones" view.</p>
+                                <div class="detail-box-title">UtilityCo Output</div>
+                                <p style="margin:0;"><strong>Value Added Grid v1</strong> (battlefield scope) + <strong>Agentic Overlay</strong> as a separate annotation layer.</p>
                             </div>
                         </div>
                     </div>
@@ -740,108 +709,91 @@
                 <div class="submodule" onclick="toggleSubmodule(this)">
                     <div class="submodule-header">
                         <span class="submodule-code">M1.2</span>
-                        <span class="submodule-title">DBA Reconstruction & Linkage Identification</span>
+                        <span class="submodule-title">DBA Reconstruction & Linkage Identification (Strategic Segmentation)</span>
                         <span class="submodule-toggle">▼</span>
                     </div>
                     <div class="submodule-content">
                         <div class="submodule-body">
-                            <p>Translate the grid into <strong>DBAs (Discrete Business Activities)</strong> and identify <strong>linkages</strong> (shared aspects that create advantage via sharing). This is LEAD® heritage: Value Added Grid → reconstruction into DBAs → linkages.</p>
+                            <p>UtilityCo's DBA segmentation is produced by <strong>reconstructing</strong> the Value Added Grid into businesses with distinct competitive sets, regulation and economics — plus explicit linkages with cost/price impact.</p>
                             <ul>
-                                <li><strong>Deconstruct the grid</strong> into "value cells" that represent real activities.</li>
-                                <li><strong>Reconstruct into 8–12 DBAs</strong>, each being a standalone business with its own battlefield and economics.</li>
-                                <li><strong>Identify linkages</strong> that have a cost/price impact (sharing must create advantage).</li>
+                                <li><strong>Cluster grid cells</strong> into DBAs using strategic homogeneity: customers, competitors, regulation, economics, and required capabilities.</li>
+                                <li><strong>Standalone test:</strong> each DBA must be viable as a "business in its own right" with its own battlefield and strategy.</li>
+                                <li><strong>MECE rule:</strong> every value cell has exactly <strong>one primary DBA owner</strong>.</li>
+                                <li><strong>Identify linkages</strong> only when sharing creates a <strong>material cost/price impact</strong> (not "nice-to-have" synergies).</li>
                                 <li><strong>Note:</strong> In DAWN®, we do not "apply autonomy to a DBA". DBAs structure the battlefield; <strong>DALs are the unit of agentic design</strong>.</li>
                             </ul>
 
                             <!-- DBA Map -->
                             <div class="visual-container">
-                                <div class="visual-title">UtilityCo DBA Map — 10 Discrete Business Activities</div>
+                                <div class="visual-title">UtilityCo DBA Map — 6 Core DBAs (MECE)</div>
                                 <div class="dba-grid">
                                     <div class="dba-card">
                                         <div class="dba-number">DBA 1</div>
-                                        <div class="dba-name">Regulated Electricity Distribution (DSO E)</div>
+                                        <div class="dba-name">Regulated Grid Operations</div>
+                                        <div style="font-size: 11px; color: var(--gray-500); margin-top: 4px;">Real-time dispatch, switching, reliability, constraints</div>
                                     </div>
                                     <div class="dba-card">
                                         <div class="dba-number">DBA 2</div>
-                                        <div class="dba-name">Regulated Gas Distribution (DSO G)</div>
+                                        <div class="dba-name">Asset Maintenance & Capital Planning</div>
+                                        <div style="font-size: 11px; color: var(--gray-500); margin-top: 4px;">Inspection, predictive maintenance, capex prioritization</div>
                                     </div>
                                     <div class="dba-card">
                                         <div class="dba-number">DBA 3</div>
-                                        <div class="dba-name">Retail Supply — Residential</div>
+                                        <div class="dba-name">Field Service & Metering</div>
+                                        <div style="font-size: 11px; color: var(--gray-500); margin-top: 4px;">Connections, meter ops, on-site interventions</div>
                                     </div>
                                     <div class="dba-card">
                                         <div class="dba-number">DBA 4</div>
-                                        <div class="dba-name">Retail Supply — SME & Mid Market</div>
+                                        <div class="dba-name">Retail Supply & Customer Operations</div>
+                                        <div style="font-size: 11px; color: var(--gray-500); margin-top: 4px;">Pricing, billing, complaints, churn management</div>
                                     </div>
                                     <div class="dba-card">
                                         <div class="dba-number">DBA 5</div>
-                                        <div class="dba-name">Key Accounts / Industrial Solutions</div>
+                                        <div class="dba-name">Trading & Optimization</div>
+                                        <div style="font-size: 11px; color: var(--gray-500); margin-top: 4px;">Hedging, balancing, flexibility valuation</div>
                                     </div>
                                     <div class="dba-card">
                                         <div class="dba-number">DBA 6</div>
-                                        <div class="dba-name">DER Interconnection & Prosumer Services</div>
-                                    </div>
-                                    <div class="dba-card">
-                                        <div class="dba-number">DBA 7</div>
-                                        <div class="dba-name">Flexibility Aggregation & Dispatch</div>
-                                    </div>
-                                    <div class="dba-card">
-                                        <div class="dba-number">DBA 8</div>
-                                        <div class="dba-name">Energy Services / ESCO</div>
-                                    </div>
-                                    <div class="dba-card">
-                                        <div class="dba-number">DBA 9</div>
-                                        <div class="dba-name">Data & Digital Platforms</div>
-                                    </div>
-                                    <div class="dba-card">
-                                        <div class="dba-number">DBA 10</div>
-                                        <div class="dba-name">Energy Management / Procurement & Risk</div>
+                                        <div class="dba-name">Flexibility & DER Solutions</div>
+                                        <div style="font-size: 11px; color: var(--gray-500); margin-top: 4px;">EV, DR, behind-the-meter orchestration</div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Linkages -->
                             <div class="visual-container">
-                                <div class="visual-title">Top 5 Linkages — With Objective Impact</div>
+                                <div class="visual-title">Linkages — Shared Aspects with Material Cost/Price Impact</div>
                                 <div class="linkage-grid">
                                     <div class="linkage-card">
                                         <div class="linkage-code">L1</div>
-                                        <div class="linkage-name">Smart Meter Data Platform</div>
-                                        <div class="linkage-dbas">DBAs: 1, 2, 3, 4, 6, 7, 9</div>
-                                        <div class="linkage-impact"><strong>Impact:</strong> Reduces cost-to-serve, enables loss detection + DER optimization, improves billing accuracy.</div>
+                                        <div class="linkage-name">Data Rights & Telemetry</div>
+                                        <div class="linkage-dbas">DBAs: 1, 2, 3, 4, 6</div>
+                                        <div class="linkage-impact"><strong>Impact:</strong> Meter + asset telemetry enables loss detection, DER optimization, billing accuracy.</div>
                                     </div>
                                     <div class="linkage-card">
                                         <div class="linkage-code">L2</div>
-                                        <div class="linkage-name">Control Room & Grid Digital Twin</div>
-                                        <div class="linkage-dbas">DBAs: 1, 2, 6, 7</div>
-                                        <div class="linkage-impact"><strong>Impact:</strong> Faster restoration, safer switching, better constraint management for DER/flex.</div>
+                                        <div class="linkage-name">24/7 Ops Room + Incident Management</div>
+                                        <div class="linkage-dbas">DBAs: 1, 5, 6</div>
+                                        <div class="linkage-impact"><strong>Impact:</strong> Faster restoration, safer switching, better constraint management.</div>
                                     </div>
                                     <div class="linkage-card">
                                         <div class="linkage-code">L3</div>
-                                        <div class="linkage-name">Customer Identity, Consent & Trust Layer</div>
-                                        <div class="linkage-dbas">DBAs: 3, 4, 5, 8, 9</div>
-                                        <div class="linkage-impact"><strong>Impact:</strong> Enables personalization + avoids compliance incidents (trust becomes a moat).</div>
+                                        <div class="linkage-name">Customer Identity/Consent + Regulatory Reporting</div>
+                                        <div class="linkage-dbas">DBAs: 3, 4, 6</div>
+                                        <div class="linkage-impact"><strong>Impact:</strong> Enables personalization, avoids compliance incidents.</div>
                                     </div>
                                     <div class="linkage-card">
                                         <div class="linkage-code">L4</div>
-                                        <div class="linkage-name">Field Workforce Scheduling & Dispatch</div>
-                                        <div class="linkage-dbas">DBAs: 1, 2, 6, 9</div>
-                                        <div class="linkage-impact"><strong>Impact:</strong> Improved response time, fewer truck rolls, higher productivity.</div>
-                                    </div>
-                                    <div class="linkage-card" style="grid-column: span 2;">
-                                        <div class="linkage-code">L5</div>
-                                        <div class="linkage-name">Regulatory Relationship & Evidence Capability</div>
-                                        <div class="linkage-dbas">DBAs: 1, 2, 3, 4, 7</div>
-                                        <div class="linkage-impact"><strong>Impact:</strong> Lower penalty risk, faster approval cycles, credibility in incidents.</div>
+                                        <div class="linkage-name">Cyber & Safety Control Standards</div>
+                                        <div class="linkage-dbas">DBAs: 1, 2, 5, 6</div>
+                                        <div class="linkage-impact"><strong>Impact:</strong> Unified standards reduce incident risk, enable evidence for regulator.</div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="detail-box">
-                                <div class="detail-box-title">Output</div>
-                                <p><strong>DBA inventory (10)</strong> + 1-pager per DBA: battlefield, economics, key competitors, key constraints.<br>
-                                <strong>Linkage map:</strong> linkage → DBAs impacted → measurable cost/price impact.<br>
-                                <strong>Coordination points list</strong> (where DALs will cross DBA boundaries).</p>
+                                <div class="detail-box-title">UtilityCo Output</div>
+                                <p style="margin:0;"><strong>DBA Map</strong> (strategic segments) + <strong>Linkage Map</strong> (shared aspects with cost/price impact).</p>
                             </div>
                         </div>
                     </div>
@@ -851,22 +803,22 @@
                 <div class="submodule" onclick="toggleSubmodule(this)">
                     <div class="submodule-header">
                         <span class="submodule-code">M1.3</span>
-                        <span class="submodule-title">DAL Portfolio Definition</span>
+                        <span class="submodule-title">DAL Inventory Extraction (Decision–Action Loops per DBA)</span>
                         <span class="submodule-toggle">▼</span>
                     </div>
                     <div class="submodule-content">
                         <div class="submodule-body">
-                            <p>Define the portfolio of <strong>Decision-Action Loops (DALs)</strong>: repeatable decision factories with stable D→I→D→A chains, grouped by DBA.</p>
+                            <p>We now extract a <strong>DAL Inventory</strong> inside each UtilityCo DBA. Each DAL is a repeatable decision loop (D→I→D→A + feedback) and is anchored to exactly one DBA (or tagged as a linkage DAL).</p>
                             <ul>
-                                <li><strong>For each DBA, extract 3–8 DALs</strong> (target 30–80 total).</li>
-                                <li><strong>Standard naming:</strong> [DBA][DecisionType][Frequency].</li>
-                                <li><strong>For each DAL:</strong> objective, inputs, owner, outputs, volume, stability test.</li>
-                                <li><strong>Flag "Cross-DBA DALs"</strong> explicitly (coordination complexity).</li>
+                                <li><strong>Start from the DBA boundary</strong> (from M1.2): list the key decisions that govern outcomes in that DBA.</li>
+                                <li><strong>Group into loops:</strong> each DAL must have a stable <strong>D→I→D→A</strong> chain + feedback.</li>
+                                <li><strong>Anchor rule:</strong> every DAL is anchored to <strong>one DBA owner</strong>; cross-DBA loops are tagged as <strong>Linkage DALs</strong>.</li>
+                                <li><strong>No prioritization here:</strong> scoring and selection happen in M1.4 via the Exposure Heatmap.</li>
                             </ul>
 
-                            <!-- DAL Portfolio Grid -->
+                            <!-- DAL Inventory Grid -->
                             <div class="visual-container">
-                                <div class="visual-title">UtilityCo DAL Portfolio — 18 DALs (excerpt across 6 DBAs)</div>
+                                <div class="visual-title">UtilityCo DAL Inventory — Sample by DBA</div>
                                 <div class="dal-grid">
                                     <div class="dal-card">
                                         <div class="dal-header">
@@ -992,9 +944,8 @@
                             </div>
 
                             <div class="detail-box">
-                                <div class="detail-box-title">Output</div>
-                                <p><strong>DAL inventory (30–80)</strong> + DAL cards for all, with <strong>10–15 priority DALs flagged</strong>.<br>
-                                "Cross-DBA DALs" explicitly tagged (coordination complexity).</p>
+                                <div class="detail-box-title">UtilityCo Output</div>
+                                <p style="margin:0;"><strong>DAL Inventory</strong> (candidate loops) with DBA anchors + linkage tags, ready for Exposure Heatmap scoring in M1.4.</p>
                             </div>
                         </div>
                     </div>
@@ -1471,7 +1422,7 @@
                         <div style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">10 DBAs + 5 linkages (validated at Gate A)</div>
                     </div>
                     <div style="padding: 16px; background: white; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
-                        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">DAL Portfolio</div>
+                        <div style="font-size: 13px; font-weight: 700; color: var(--navy);">DAL Inventory</div>
                         <div style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">30–80 DALs with DIDA+ structure</div>
                     </div>
                     <div style="padding: 16px; background: white; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
@@ -1574,7 +1525,7 @@
                         <div class="submodule-body">
                             <p>Pass from "many ideas" to <strong>~15 materially decisive trends</strong> with measurable impact logic.</p>
                             <ul>
-                                <li><strong>Scoring grid:</strong> Impact on value pools (0–5), Impact on DAL portfolio (0–5), Timing (12/24/48), Plausibility (0–5), Regulatory dependency, Reversibility/tail risk.</li>
+                                <li><strong>Scoring grid:</strong> Impact on value pools (0–5), Impact on DAL inventory (0–5), Timing (12/24/48), Plausibility (0–5), Regulatory dependency, Reversibility/tail risk.</li>
                             </ul>
 
                             <div class="visual-container">
@@ -2077,7 +2028,7 @@
                         <div style="font-size: 12px; font-weight: 700; color: var(--teal); margin-bottom: 12px;">From Module 1</div>
                         <div style="display: grid; gap: 8px;">
                             <div style="padding: 12px; background: white; border-radius: var(--radius-md); font-size: 13px; color: var(--gray-600);">DBA Map (10 DBAs) + 5 Linkages</div>
-                            <div style="padding: 12px; background: white; border-radius: var(--radius-md); font-size: 13px; color: var(--gray-600);">Priority DAL Portfolio (A2) — 12 DALs with DIDA+</div>
+                            <div style="padding: 12px; background: white; border-radius: var(--radius-md); font-size: 13px; color: var(--gray-600);">Priority DAL Inventory (A2) — 12 DALs with DIDA+</div>
                             <div style="padding: 12px; background: white; border-radius: var(--radius-md); font-size: 13px; color: var(--gray-600);">Exposure Heatmap (A1) — value × criticality</div>
                         </div>
                     </div>
@@ -2825,7 +2776,7 @@
                 <div class="visual-container" style="margin: 0; background: linear-gradient(135deg, rgba(0,128,128,0.04), rgba(0,51,102,0.02)); border-color: var(--teal);">
                     <div class="visual-title" style="font-size: 14px;">📥 Required Inputs</div>
                     <ul style="font-size: 13px; color: var(--gray-600); margin: 0; padding-left: 16px; line-height: 1.8;">
-                        <li><strong>From M1:</strong> DBA map + priority DAL portfolio (A2) + Exposure Heatmap (A1)</li>
+                        <li><strong>From M1:</strong> DBA map + DAL Inventory (A2) + Exposure Heatmap (A1)</li>
                         <li><strong>From M2:</strong> Scenario cards (3+1) + no-regret package + option portfolio + AOM Design Brief</li>
                         <li><strong>Energy context:</strong> Asset base, grid constraints, retail footprint, DER/flex mandate</li>
                         <li><strong>Enterprise risk appetite:</strong> Financial / safety / regulatory / reputational boundaries</li>
